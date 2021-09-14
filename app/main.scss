@@ -1,0 +1,15 @@
+.story {
+  padding: 10px;
+  border: 1px solid black;
+  background: #f5f5f5;
+
+  &-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+}
+
+h1 {
+  font-size: 20px;
+}
