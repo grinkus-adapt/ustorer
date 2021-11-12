@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/main.scss/app/main.scss","app/styles.css"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAIJ;EACE;;;ACbF;AACA;AACA;AACA;AACA;AACA;AACA","file":"public/app.css","sourcesContent":[null,".brunch {\n  font-family: -apple-system, Sans-Serif;\n  text-align: center;\n  font-size: 24pt;\n  color: #3f894a;\n}\n"]}
