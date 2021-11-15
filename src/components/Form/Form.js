@@ -47,7 +47,7 @@ const Form = () => {
         <Button
           type="button"
           className="criterion-button criterion-button--add"
-          text="Add List"
+          text="Add Criterion"
           onClick={addList}
         />
         <ol>
