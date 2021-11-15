@@ -1,4 +1,4 @@
-import { Logo } from './logo'
+import { Logo } from './logo';
 
 export function App(props) {
   return (
@@ -16,5 +16,5 @@ export function App(props) {
         </a>
       </p>
     </>
-  )
+  );
 }

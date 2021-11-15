@@ -1,6 +1,6 @@
 /* eslint-disable quotes,no-undef */
 module.exports = {
-  extends: ['eslint:recommended', 'eslint-config-prettier'],
+  extends: ['eslint-config-react-app', 'eslint-config-prettier'],
   plugins: ['eslint-plugin-prettier'],
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
@@ -10,6 +10,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 2 }],
     'prettier/prettier': 'error',
     quotes: ['error', 'backtick'],
+    'react/jsx-no-target-blank': [`error`, { allowReferrer: true }],
   },
   parserOptions: {
     ecmaVersion: 7,
