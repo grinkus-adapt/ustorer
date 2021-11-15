@@ -1,20 +1,14 @@
-import { Logo } from './logo';
+import Layout from './components/Layout';
+import Form from './components/Form';
+import UserStory from './components/UserStory';
 
 export function App() {
   return (
     <>
-      <Logo />
-      <p>Hello Vite + Preact!</p>
-      <p>
-        <a
-          class="link"
-          href="https://preactjs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Preact
-        </a>
-      </p>
+      <Layout>
+        <Form />
+        <UserStory />
+      </Layout>
     </>
   );
 }

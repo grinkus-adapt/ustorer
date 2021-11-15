@@ -1,0 +1,22 @@
+.criterion-button {
+  border: none;
+  border-radius: 3px;
+  color: #f4f4f4;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    opacity: 80%;
+  }
+
+  &--add {
+    background-color: teal;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  &--rem {
+    background-color: darkred;
+    font-size: 1.2rem;
+  }
+}

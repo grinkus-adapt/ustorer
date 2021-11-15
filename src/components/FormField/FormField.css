@@ -1,0 +1,11 @@
+.form-field {
+  &__description {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__criteria .text-input {
+    margin-bottom: 10px;
+  }
+}

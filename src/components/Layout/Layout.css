@@ -1,0 +1,7 @@
+.layout-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 5em;
+  height: 100%;
+  justify-content: center;
+}

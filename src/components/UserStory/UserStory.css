@@ -1,0 +1,11 @@
+.user-story {
+  align-items: center;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 0.5em;
+  max-width: 40%;
+  padding: 1em;
+}

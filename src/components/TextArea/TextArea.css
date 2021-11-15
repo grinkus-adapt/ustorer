@@ -1,0 +1,11 @@
+.text-area {
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  margin-left: 10px;
+  padding: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
