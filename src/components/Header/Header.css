@@ -1,0 +1,17 @@
+.header {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  &__title {
+    color: #f4f4f4;
+    font-family: "Bebas Neue", cursive;
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    text-shadow: 6px 6px 0 rgb(0 0 0 / 20%);
+    text-transform: uppercase;
+  }
+}
