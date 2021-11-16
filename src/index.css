@@ -1,8 +1,9 @@
 html,
 body {
-  background: rgb(2 0 36);
+  background: rgb(186,112,158);
+
   /* stylelint-disable */
-  background: linear-gradient(90deg, rgb(2 0 36 / 100%) 0%, rgb(121 9 117 / 100%) 17%, rgb(255 0 116 / 100%) 79%, rgb(55 0 25 / 100%) 100%);
+  background: -moz-linear-gradient(90deg, rgba(186,112,158,1) 0%, rgba(191,114,149,1) 100%);
   /* stylelint-enable */
   color: #444;
   font-family: "Helvetica Neue", arial, sans-serif;
