@@ -1,17 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 
 html,
 body {
-  background: rgb(186,112,158);
+  background: rgb(186 112 158);
 
   /* stylelint-disable */
   background: -moz-linear-gradient(90deg, rgba(186,112,158,1) 0%, rgba(191,114,149,1) 100%);
   /* stylelint-enable */
   color: #444;
-  font-family: "Helvetica Neue", arial, sans-serif;
+
+  /* font-family: "Helvetica Neue", arial, sans-serif; */
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
+  font-weight: 300;
   height: 100%;
   margin: 0;
   padding: 0;
