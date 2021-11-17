@@ -2,8 +2,11 @@
   border: none;
   border-radius: 5px;
   font: inherit;
+  height: 7rem;
   margin-left: 10px;
   padding: 5px;
+  resize: vertical;
+  width: 20rem;
 
   &:focus {
     outline: none;

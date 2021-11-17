@@ -3,15 +3,14 @@
 
 html,
 body {
-  background: rgb(186 112 158);
-
+  background: rgb(163 208 191);
   /* stylelint-disable */
-  background: -moz-linear-gradient(90deg, rgba(186,112,158,1) 0%, rgba(191,114,149,1) 100%);
+  background: linear-gradient(90deg, rgb(163 208 191 / 100%) 0%, rgb(157 207 218 / 100%) 30%, rgb(179 157 218 / 100%) 60%, rgb(207 157 218 / 100%) 100%);
   /* stylelint-enable */
   color: #333;
-
-  /* font-family: "Helvetica Neue", arial, sans-serif; */
-  font-family: "Open Sans", sans-serif;
+  font-family:
+    "Open Sans",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;

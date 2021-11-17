@@ -13,15 +13,47 @@
   padding: 1em;
   position: relative;
 
+  &--title {
+    font-weight: 400;
+  }
+
   &__content {
     display: flex;
     flex: 1;
+    flex-direction: column;
 
     &--empty {
       align-items: center;
       color: rgb(0 0 0 / 30%);
       display: flex;
       justify-content: center;
+    }
+
+    &--actions {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+  }
+
+  &__description,
+  &__acceptance-criteria {
+    &--label {
+      display: flex;
+      justify-content: center;
+      opacity: 60%;
+      padding: 1rem 0 0.5rem;
+    }
+
+    &--content {
+      padding: 0.5rem 0 1rem;
+    }
+  }
+
+  &__acceptance-criteria {
+    &--content {
+      margin: 0;
+      padding-left: 1em;
     }
   }
 }

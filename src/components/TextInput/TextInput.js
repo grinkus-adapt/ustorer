@@ -1,6 +1,6 @@
 import './TextInput.css';
 
-const TextInput = ({ name, placeholder, required, value, onInput }) => (
+const TextInput = ({ name, placeholder, required, onInput }) => (
   <>
     <input
       type="text"
@@ -9,7 +9,6 @@ const TextInput = ({ name, placeholder, required, value, onInput }) => (
       className="text-input"
       placeholder={placeholder}
       {...(required ? required : null)}
-      value={value}
       onInput={onInput}
     />
   </>

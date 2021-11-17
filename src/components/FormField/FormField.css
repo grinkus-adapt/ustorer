@@ -1,4 +1,11 @@
 .form-field {
+  align-items: center;
+  display: flex;
+
+  label::first-letter {
+    text-transform: uppercase;
+  }
+
   &__description {
     align-items: flex-end;
     display: flex;
@@ -10,6 +17,7 @@
   }
 
   &__criteria {
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
 
