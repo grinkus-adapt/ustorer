@@ -7,9 +7,10 @@
   }
 
   &__description {
-    align-items: flex-end;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     label {
       margin-bottom: 5px;
@@ -17,13 +18,20 @@
   }
 
   &__criteria {
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto;
 
     label {
+      grid-column: 1/2;
       margin-bottom: 5px;
-      text-align: right;
+    }
+
+    button {
+      grid-column: 2/3;
+    }
+
+    ol {
+      grid-column: 1/3;
     }
   }
 
