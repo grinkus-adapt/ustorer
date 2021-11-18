@@ -1,7 +1,9 @@
 import Layout from './components/Layout';
 import Form from './components/Form';
-import UserStory from './components/UserStory';
+import UserStoryOutput from './components/UserStoryOutput';
+import BugReportOutput from './components/BugReportOutput';
 import { userStoryFormData } from './data/UserStoryForm';
+import { bugReportFormData } from './data/BugReportForm';
 import { useState, useReducer } from 'preact/hooks';
 
 const initialState = { acceptanceCriteria: [``] };
@@ -29,41 +31,35 @@ const reducer = (state, action) => {
 };
 export function App() {
   const [isOutputEmpty, setIsOutputEmpty] = useState(true);
+  const [formType, setFormType] = useState(`userStory`);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
-      {/* <pre>{JSON.stringify(state, undefined, 2)}</pre> */}
       <Layout>
         <Form
           setIsOutputEmpty={setIsOutputEmpty}
           formData={userStoryFormData}
+          bugFormData={bugReportFormData}
           dispatch={dispatch}
+          formType={formType}
+          setFormType={setFormType}
         />
-        <UserStory
-          isOutputEmpty={isOutputEmpty}
-          formData={userStoryFormData}
-          inputData={state}
-        />
+        {formType === `userStory` && (
+          <UserStoryOutput
+            isOutputEmpty={isOutputEmpty}
+            formData={userStoryFormData}
+            inputData={state}
+          />
+        )}
+        {formType === `bugReport` && (
+          <BugReportOutput
+            isOutputEmpty={isOutputEmpty}
+            formData={bugReportFormData}
+            inputData={state}
+          />
+        )}
       </Layout>
     </>
   );
 }
-// if (type === `setCriterionValue`) {
-//   if (payload.value !== state.acceptanceCriteria[payload.id]) {
-//     return {
-//       ...state,
-//       // Object.values - lists all object values to array
-//       acceptanceCriteria: Object.values(
-//         reducer(
-//           state.acceptanceCriteria.reduce((acc, str, index) => {
-//             acc[index] = str;
-//             return acc;
-//           }, {}),
-//           { type: `setIdValue`, payload }
-//         )
-//       ),
-//     };
-//   }
-//   return state;
-// }

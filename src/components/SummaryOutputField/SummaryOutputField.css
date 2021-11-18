@@ -1,0 +1,25 @@
+.summary-output-field {
+  border-bottom: 2px solid;
+  border-image-slice: 1;
+  border-image-source:
+    linear-gradient(
+      to left,
+      rgb(26 136 204 / 0%),
+      rgb(255 255 255 / 70%),
+      rgb(26 136 204 / 0%)
+    );
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  &__title {
+    opacity: 60%;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__content {
+    margin-bottom: 2rem;
+  }
+}

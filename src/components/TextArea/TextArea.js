@@ -1,12 +1,12 @@
 import './TextArea.css';
 
-const TextArea = ({ name, rows, cols, onInput }) => (
+const TextArea = ({ name, id, rows, cols, onInput, className }) => (
   <>
     <textarea
       type="text"
       name={name}
-      id={name}
-      className="text-area"
+      id={id || name}
+      className={`text-area ${className}`}
       rows={rows}
       cols={cols}
       onInput={onInput}

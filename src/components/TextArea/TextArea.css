@@ -10,4 +10,8 @@
   &:focus {
     outline: none;
   }
+
+  &__summary {
+    height: 3rem;
+  }
 }

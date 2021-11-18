@@ -1,11 +1,19 @@
 import { useState } from 'preact/hooks';
+import UserStoryForm from '../UserStoryForm';
+import RadioInput from '../RadioInput/RadioInput';
 import FormField from '../FormField';
-import TextInput from '../TextInput';
 import TextArea from '../TextArea';
-import Button from '../Button';
 import './Form.css';
+import BugReportForm from '../BugReportForm/BugReportForm';
 
-const Form = ({ formData, dispatch, setIsOutputEmpty }) => {
+const Form = ({
+  formData,
+  bugFormData,
+  dispatch,
+  setIsOutputEmpty,
+  formType,
+  setFormType,
+}) => {
   const [criteriaList, setCriteriaList] = useState([``]);
 
   const addList = () => {
@@ -39,58 +47,50 @@ const Form = ({ formData, dispatch, setIsOutputEmpty }) => {
   };
 
   return (
-    <form className="user-story-form">
-      {formData.map((item) => (
-        <FormField
-          key={item.id}
-          label={item.label}
-          labelFor={item.id}
-          className={item.className}
-        >
-          {item.type === `textinput` && (
-            <TextInput
-              name={item.id}
-              placeholder={item.placeholder}
-              required={item.required}
-              onInput={(e) => handleChange(e)}
-            />
-          )}
-          {item.type === `textarea` && (
-            <TextArea
-              name={item.id}
-              placeholder={item.placeholder}
-              required={item.required}
-              onInput={(e) => handleChange(e)}
-            />
-          )}
-          {item.type === `acceptanceCriteria` && (
-            <>
-              <Button type="button" className="btn btn--add" onClick={addList}>
-                Add Criterion
-              </Button>
-              <ol>
-                {criteriaList.map((item, index) => (
-                  <li key={index}>
-                    <TextInput
-                      name={`criterion-input-${index}`}
-                      className="form-input"
-                      onInput={(e) => changeCriterion(e, index)}
-                    />
-                    <Button
-                      type="button"
-                      className="btn btn--rem"
-                      onClick={() => remList(index)}
-                    >
-                      X
-                    </Button>
-                  </li>
-                ))}
-              </ol>
-            </>
-          )}
-        </FormField>
-      ))}
-    </form>
+    <div className="form-container">
+      <FormField
+        label="Choose Task type"
+        labelFor="form-type"
+        className="form-type-select"
+      >
+        <RadioInput
+          value="User Story"
+          name="form-type"
+          id="type-user-story"
+          onInput={() => setFormType(`userStory`)}
+        />
+        <RadioInput
+          value="Bug Report"
+          name="form-type"
+          id="type-bug-report"
+          onInput={() => setFormType(`bugReport`)}
+        />
+      </FormField>
+      <FormField
+        label="Summary"
+        labelFor="form-summary"
+        className="form-field__summary"
+      >
+        <TextArea
+          className="text-area__summary"
+          id="summary"
+          onInput={handleChange}
+        />
+      </FormField>
+      {formType === `userStory` && (
+        <UserStoryForm
+          addList={addList}
+          remList={remList}
+          changeCriterion={changeCriterion}
+          handleChange={handleChange}
+          formData={formData}
+          criteriaList={criteriaList}
+        />
+      )}
+      {formType === `bugReport` && (
+        <BugReportForm formData={bugFormData} handleChange={handleChange} />
+      )}
+    </div>
   );
 };
 

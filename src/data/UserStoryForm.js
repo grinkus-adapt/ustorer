@@ -24,7 +24,7 @@ export const userStoryFormData = [
     required: true,
   },
   {
-    id: `description`,
+    id: `story-description`,
     label: `Description`,
     type: `textarea`,
     placeholder: ``,
