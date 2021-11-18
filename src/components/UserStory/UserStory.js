@@ -6,6 +6,17 @@ import TurndownService from 'turndown';
 const UserStory = ({ formData, inputData, isOutputEmpty }) => {
   const setRef = useCopyAsMarkdown();
 
+  const showTooltip = () => {
+    const tooltip = document.querySelector(`.user-story__tooltip`);
+    tooltip.setAttribute(`class`, `user-story__tooltip disabled`);
+    tooltip.setAttribute(`class`, `user-story__tooltip`);
+    console.log(tooltip.getAttribute(`class`));
+    setTimeout(
+      () => tooltip.setAttribute(`class`, `user-story__tooltip disabled`),
+      3000
+    );
+  };
+
   const copyOutput = () => {
     const nodeHTML = document.querySelector(
       `.user-story__content--body`
@@ -17,6 +28,7 @@ const UserStory = ({ formData, inputData, isOutputEmpty }) => {
         hr: `---`,
       }).turndown(nodeHTML)
     );
+    showTooltip();
   };
 
   return (
@@ -69,6 +81,9 @@ const UserStory = ({ formData, inputData, isOutputEmpty }) => {
               >
                 Copy Output
               </Button>
+              <span className="user-story__tooltip disabled">
+                Copied successfully!
+              </span>
             </div>
           </>
         )}
