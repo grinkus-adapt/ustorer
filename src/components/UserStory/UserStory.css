@@ -24,8 +24,9 @@
 
     &--empty {
       align-items: center;
-      color: rgb(0 0 0 / 30%);
+      color: rgb(0 0 0 / 50%);
       display: flex;
+      flex: 1;
       justify-content: center;
     }
 

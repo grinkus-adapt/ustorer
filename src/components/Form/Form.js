@@ -5,7 +5,7 @@ import TextArea from '../TextArea';
 import Button from '../Button';
 import './Form.css';
 
-const Form = ({ formData, dispatch }) => {
+const Form = ({ formData, dispatch, setIsOutputEmpty }) => {
   const [criteriaList, setCriteriaList] = useState([``]);
 
   const addList = () => {
@@ -34,6 +34,7 @@ const Form = ({ formData, dispatch }) => {
       type: `setIdValue`,
       payload: { id: currentInput.id, value: currentInput.value },
     });
+    setIsOutputEmpty(false);
     e.preventDefault();
   };
 

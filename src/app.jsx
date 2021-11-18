@@ -2,7 +2,7 @@ import Layout from './components/Layout';
 import Form from './components/Form';
 import UserStory from './components/UserStory';
 import { userStoryFormData } from './data/UserStoryForm';
-import { useReducer } from 'preact/hooks';
+import { useState, useReducer } from 'preact/hooks';
 
 const initialState = { acceptanceCriteria: [``] };
 
@@ -27,16 +27,24 @@ const reducer = (state, action) => {
   }
   throw new Error();
 };
-
 export function App() {
+  const [isOutputEmpty, setIsOutputEmpty] = useState(true);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
       {/* <pre>{JSON.stringify(state, undefined, 2)}</pre> */}
       <Layout>
-        <Form formData={userStoryFormData} dispatch={dispatch} />
-        <UserStory formData={userStoryFormData} inputData={state} />
+        <Form
+          setIsOutputEmpty={setIsOutputEmpty}
+          formData={userStoryFormData}
+          dispatch={dispatch}
+        />
+        <UserStory
+          isOutputEmpty={isOutputEmpty}
+          formData={userStoryFormData}
+          inputData={state}
+        />
       </Layout>
     </>
   );
