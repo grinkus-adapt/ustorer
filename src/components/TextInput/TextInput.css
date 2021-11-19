@@ -1,9 +1,9 @@
 .text-input {
-  border: none;
+  border: 1px solid rgb(221 237 239);
   border-radius: 5px;
   font: inherit;
-  margin-left: 10px;
-  padding: 5px;
+  padding: 0.5rem;
+  width: 100%;
 
   &:focus {
     outline: none;

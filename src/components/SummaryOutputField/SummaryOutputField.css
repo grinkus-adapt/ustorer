@@ -14,9 +14,8 @@
   padding-bottom: 1rem;
 
   &__title {
-    opacity: 60%;
+    color: teal;
     padding-bottom: 1rem;
-    text-align: center;
   }
 
   &__content {

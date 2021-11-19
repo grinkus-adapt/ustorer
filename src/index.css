@@ -3,17 +3,14 @@
 
 html,
 body {
-  background: rgb(163 208 191);
-  /* stylelint-disable */
-  background: linear-gradient(90deg, rgb(163 208 191 / 100%) 0%, rgb(157 207 218 / 100%) 30%, rgb(179 157 218 / 100%) 60%, rgb(207 157 218 / 100%) 100%);
-  /* stylelint-enable */
+  background: #f4f4f4;
   color: #333;
   font-family:
     "Open Sans",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 300;
+  font-weight: 400;
   height: 100%;
   margin: 0;
   padding: 0;

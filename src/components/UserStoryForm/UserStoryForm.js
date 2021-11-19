@@ -44,18 +44,20 @@ const UserStoryForm = ({
             <ol>
               {criteriaList.map((item, index) => (
                 <li key={index}>
-                  <TextInput
-                    name={`criterion-input-${index}`}
-                    className="form-input"
-                    onInput={(e) => changeCriterion(e, index)}
-                  />
-                  <Button
-                    type="button"
-                    className="btn btn--rem"
-                    onClick={() => remList(index)}
-                  >
-                    X
-                  </Button>
+                  <div className="criterion-fake-input">
+                    <TextInput
+                      name={`criterion-input-${index}`}
+                      className="form-input"
+                      onInput={(e) => changeCriterion(e, index)}
+                    />
+                    <Button
+                      type="button"
+                      className="btn btn--rem"
+                      onClick={() => remList(index)}
+                    >
+                      ×
+                    </Button>
+                  </div>
                 </li>
               ))}
             </ol>

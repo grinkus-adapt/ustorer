@@ -55,9 +55,28 @@ const BugReportOutput = ({ formData, inputData, isOutputEmpty }) => {
                       </div>
                     </div>
                   );
-                return `${item.label} ${
-                  !inputData[item.id] ? `...` : inputData[item.id]
-                } `;
+                if (item.label === `Browser`)
+                  return (
+                    <div className="bug-report-output__browser">
+                      <span className="bug-report-output__browser--label">
+                        <b>{item.label}</b>
+                      </span>
+                      <div className="bug-report-output__browser--content">
+                        {inputData[item.id]}
+                      </div>
+                    </div>
+                  );
+                if (item.label === `Devices`)
+                  return (
+                    <div className="bug-report-output__devices">
+                      <span className="bug-report-output__devices--label">
+                        <b>{item.label}</b>
+                      </span>
+                      <div className="bug-report-output__devices--content">
+                        {inputData[item.id]}
+                      </div>
+                    </div>
+                  );
               })}
             </span>
             <div className="bug-report-output__content--actions">

@@ -1,20 +1,19 @@
 .user-story-output {
-  align-items: center;
-  background-color: rgb(255 255 255 / 45%);
-  border-radius: 5px;
-  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+  background-color: #fbfbfb;
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   gap: 0.5em;
-  max-width: 40%;
-  min-height: 51.5%;
-  min-width: 20%;
-  padding: 1em;
-  position: relative;
+  padding: 4rem 2rem;
+  width: 50%;
+
+  @media (min-width: 1080px) {
+    padding: 4rem 6rem 4rem 2rem;
+  }
 
   &__title {
-    font-weight: 400;
+    color: teal;
+    font-weight: 600;
   }
 
   &__content {
@@ -29,22 +28,13 @@
       flex: 1;
       justify-content: center;
     }
-
-    &--actions {
-      align-items: center;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: center;
-    }
   }
 
   &__description,
   &__acceptance-criteria {
     &--label {
+      color: teal;
       display: flex;
-      justify-content: center;
-      opacity: 60%;
       padding: 1rem 0 0.5rem;
     }
 

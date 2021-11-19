@@ -1,9 +1,9 @@
 .text-area {
-  border: none;
+  border: 1px solid rgb(221 237 239);
   border-radius: 5px;
   font: inherit;
   height: 7rem;
-  padding: 5px;
+  padding: 0.5rem;
   resize: vertical;
   width: 100%;
 

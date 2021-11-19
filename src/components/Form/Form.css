@@ -1,11 +1,13 @@
 .form-container {
-  align-items: flex-end;
-  background-color: rgb(255 255 255 / 45%);
-  border-radius: 5px;
-  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+  background-color: #fbfbfb;
   display: flex;
   flex-direction: column;
   font-size: 1.3rem;
   gap: 0.5em;
-  padding: 1em;
+  padding: 4rem 2rem;
+  width: 50%;
+
+  @media (min-width: 1080px) {
+    padding: 4rem 2rem 4rem 6rem;
+  }
 }
