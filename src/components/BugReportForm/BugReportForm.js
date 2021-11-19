@@ -4,7 +4,7 @@ import TextArea from '../TextArea';
 import './BugReportForm.css';
 
 const BugReportForm = ({ handleChange, formData }) => (
-  <form className="bug-report-form">
+  <form className="BugReportForm">
     {formData.map((item) => (
       <FormField
         key={item.id}

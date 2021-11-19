@@ -12,7 +12,7 @@ const SummaryOutputField = ({ inputData, copyOutput }) => (
     <div className="summary-output-field__content">{inputData[`summary`]}</div>
     <div className="summary-output-field__content--actions">
       <Button
-        className="btn btn--copy"
+        className="Button Button--filled Button--icon Button--copy-icon"
         onClick={() => copyOutput(`.summary-output-field__content`)}
       >
         Copy Summary

@@ -1,0 +1,45 @@
+.DraftList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  padding: 4rem 1rem;
+  transition: all 0.2s ease-in-out;
+  width: 200px;
+
+  &__container {
+    background-color: #fbfbfb;
+    border: 2px solid currentColor;
+    border-radius: 10px;
+    color: teal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    &__summary {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &__description {
+      color: grey;
+    }
+
+    &__actions {
+      width: 100%;
+
+      > button {
+        width: 100%;
+      }
+    }
+  }
+
+  &--hidden {
+    display: none;
+
+    &__container {
+      border: none;
+    }
+  }
+}

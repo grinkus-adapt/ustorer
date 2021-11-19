@@ -1,16 +1,16 @@
 import './RadioInput.css';
 
 const RadioInput = ({ id, name, value, onInput }) => (
-  <div className="radio-input">
+  <div className="RadioInput">
     <input
       type="radio"
       value={value}
       name={name}
       id={id}
-      className="radio-input__selector"
+      className="RadioInput__selector"
       onInput={onInput}
     />
-    <label for={id} className="radio-input__label">
+    <label for={id} className="RadioInput__label">
       {value}
     </label>
   </div>

@@ -6,7 +6,7 @@ const TextInput = ({ name, placeholder, required, onInput }) => (
       type="text"
       name={name}
       id={name}
-      className="text-input"
+      className="TextInput"
       placeholder={placeholder}
       {...(required ? required : null)}
       onInput={onInput}

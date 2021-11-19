@@ -28,7 +28,7 @@ export const userStoryFormData = [
     label: `Description`,
     type: `textarea`,
     placeholder: ``,
-    className: `form-field__description`,
+    className: `FormField__description`,
     required: true,
   },
   {
@@ -36,7 +36,7 @@ export const userStoryFormData = [
     label: `Acceptance Criteria`,
     type: `acceptanceCriteria`,
     placeholder: ``,
-    className: `form-field__criteria`,
+    className: `FormField__criteria`,
     required: false,
   },
 ];

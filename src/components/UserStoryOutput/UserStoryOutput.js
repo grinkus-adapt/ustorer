@@ -8,12 +8,12 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
   const setRef = useCopyAsMarkdown();
 
   const showTooltip = () => {
-    const tooltip = document.querySelector(`.user-story-output__tooltip`);
-    tooltip.setAttribute(`class`, `user-story-output__tooltip disabled`);
-    tooltip.setAttribute(`class`, `user-story-output__tooltip`);
+    const tooltip = document.querySelector(`.UserStoryOutput__tooltip`);
+    tooltip.setAttribute(`class`, `UserStoryOutput__tooltip disabled`);
+    tooltip.setAttribute(`class`, `UserStoryOutput__tooltip`);
     setTimeout(
       () =>
-        tooltip.setAttribute(`class`, `user-story-output__tooltip disabled`),
+        tooltip.setAttribute(`class`, `UserStoryOutput__tooltip disabled`),
       3000
     );
   };
@@ -31,37 +31,37 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
   };
 
   return (
-    <div className="user-story-output">
-      <h2 className="user-story-output__title">User Story</h2>
-      <div className="user-story-output__content">
+    <div className="UserStoryOutput">
+      <h2 className="UserStoryOutput__title">User Story</h2>
+      <div className="UserStoryOutput__content">
         {isOutputEmpty && (
-          <span className="user-story-output__content--empty">
+          <span className="UserStoryOutput__content--empty">
             Waiting for input...
           </span>
         )}
         {!isOutputEmpty && (
           <>
             <SummaryOutputField inputData={inputData} copyOutput={copyOutput} />
-            <span className="user-story-output__content--body" ref={setRef}>
+            <span className="UserStoryOutput__content--body" ref={setRef}>
               {formData.map((item) => {
                 if (item.label === `Description`)
                   return (
-                    <div className="user-story-output__description">
-                      <span className="user-story-output__description--label">
+                    <div className="UserStoryOutput__description">
+                      <span className="UserStoryOutput__description--label">
                         <b>{item.label}</b>
                       </span>
-                      <div className="user-story-output__description--content">
+                      <div className="UserStoryOutput__description--content">
                         {inputData[item.id]}
                       </div>
                     </div>
                   );
                 if (item.label === `Acceptance Criteria`)
                   return (
-                    <div className="user-story-output__acceptance-criteria">
-                      <span className="user-story-output__acceptance-criteria--label">
+                    <div className="UserStoryOutput__acceptance-criteria">
+                      <span className="UserStoryOutput__acceptance-criteria--label">
                         <b>{item.label}</b>
                       </span>
-                      <ol className="user-story-output__acceptance-criteria--content">
+                      <ol className="UserStoryOutput__acceptance-criteria--content">
                         {inputData[item.id].map((listItem) => (
                           <li key={listItem}>{listItem}</li>
                         ))}
@@ -73,15 +73,15 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
                 } `;
               })}
             </span>
-            <div className="user-story-output__content--actions">
+            <div className="UserStoryOutput__content--actions">
               <Button
                 type="button"
-                className="btn btn--copy"
-                onClick={() => copyOutput(`.user-story-output__content--body`)}
+                className="Button Button--filled Button--icon Button--copy-icon"
+                onClick={() => copyOutput(`.UserStoryOutput__content--body`)}
               >
                 Copy Output
               </Button>
-              <span className="user-story-output__tooltip disabled">
+              <span className="UserStoryOutput__tooltip disabled">
                 Copied successfully!
               </span>
             </div>

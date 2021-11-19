@@ -47,7 +47,7 @@ const Form = ({
   };
 
   return (
-    <div className="form-container">
+    <div className="Form">
       <FormField
         label="Choose Task type"
         labelFor="form-type"
@@ -69,10 +69,10 @@ const Form = ({
       <FormField
         label="Summary"
         labelFor="form-summary"
-        className="form-field__summary"
+        className="FormField__summary"
       >
         <TextArea
-          className="text-area__summary"
+          className="TextArea__summary"
           id="summary"
           onInput={handleChange}
         />

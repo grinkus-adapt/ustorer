@@ -12,7 +12,7 @@ const UserStoryForm = ({
   remList,
   criteriaList,
 }) => (
-  <form className="user-story-form">
+  <form className="UserStoryForm">
     {formData.map((item) => (
       <FormField
         key={item.id}
@@ -38,7 +38,7 @@ const UserStoryForm = ({
         )}
         {item.type === `acceptanceCriteria` && (
           <>
-            <Button type="button" className="btn btn--add" onClick={addList}>
+            <Button type="button" className="Button Button--inverted Button--icon Button--add-icon" onClick={addList}>
               Add Criterion
             </Button>
             <ol>
@@ -52,7 +52,7 @@ const UserStoryForm = ({
                     />
                     <Button
                       type="button"
-                      className="btn btn--rem"
+                      className="Button Button--rem"
                       onClick={() => remList(index)}
                     >
                       ×

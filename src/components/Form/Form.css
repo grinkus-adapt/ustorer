@@ -1,6 +1,6 @@
-.form-container {
-  background-color: #fbfbfb;
-  display: flex;
+.Form {
+  background-color: #f3f3f3;
+  display: inline-flex;
   flex-direction: column;
   gap: 0.5em;
   padding: 4rem 2rem;

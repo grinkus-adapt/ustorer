@@ -4,7 +4,7 @@ export const bugReportFormData = [
     label: `Description`,
     type: `textarea`,
     placeholder: ``,
-    className: `form-field__description`,
+    className: `FormField__description`,
     required: true,
   },
   {
