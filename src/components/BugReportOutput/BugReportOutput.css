@@ -1,10 +1,10 @@
 .BugReportOutput {
   background-color: #fbfbfb;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 0.5em;
   padding: 4rem 2rem;
-  width: 35%;
+  width: 50%;
 
   @media (min-width: 1080px) {
     padding: 4rem 6rem 4rem 2rem;

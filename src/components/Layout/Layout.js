@@ -29,8 +29,20 @@ return(
       <div className="Layout__content">{children}</div>
       <DraftList />
       <Button className="Button Layout__sidebar-toggle" onClick={() => toggleSidebar()}>
-        {sidebarState === `hidden` && <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg" width="20" height="20" />}
-        {sidebarState === `visible` && <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg" width="20" height="20" />}
+        {sidebarState === `hidden` &&
+          <img
+            src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg"
+            width="20"
+            height="20"
+          />
+        }
+        {sidebarState === `visible` &&
+          <img
+            src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg"
+            width="20"
+            height="20"
+          />
+        }
       </Button>
     </div>
   </div>
