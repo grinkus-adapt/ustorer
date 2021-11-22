@@ -12,8 +12,7 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
     tooltip.setAttribute(`class`, `UserStoryOutput__tooltip disabled`);
     tooltip.setAttribute(`class`, `UserStoryOutput__tooltip`);
     setTimeout(
-      () =>
-        tooltip.setAttribute(`class`, `UserStoryOutput__tooltip disabled`),
+      () => tooltip.setAttribute(`class`, `UserStoryOutput__tooltip disabled`),
       3000
     );
   };
@@ -62,8 +61,8 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
                         <b>{item.label}</b>
                       </span>
                       <ol className="UserStoryOutput__acceptance-criteria--content">
-                        {inputData[item.id].map((listItem) => (
-                          <li key={listItem}>{listItem}</li>
+                        {inputData[item.id].map((listItem, index) => (
+                          <li key={index}>{listItem}</li>
                         ))}
                       </ol>
                     </div>

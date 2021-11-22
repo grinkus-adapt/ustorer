@@ -7,10 +7,9 @@ import './UserStoryForm.css';
 const UserStoryForm = ({
   formData,
   handleChange,
-  addList,
   changeCriterion,
-  remList,
-  criteriaList,
+  state,
+  dispatch,
 }) => (
   <form className="UserStoryForm">
     {formData.map((item) => (
@@ -26,6 +25,7 @@ const UserStoryForm = ({
             placeholder={item.placeholder}
             required={item.required}
             onInput={(e) => handleChange(e)}
+            value={state[item.id]}
           />
         )}
         {item.type === `textarea` && (
@@ -34,6 +34,7 @@ const UserStoryForm = ({
             placeholder={item.placeholder}
             required={item.required}
             onInput={(e) => handleChange(e)}
+            value={state[item.id]}
           />
         )}
         {item.type === `acceptanceCriteria` && (
@@ -41,23 +42,33 @@ const UserStoryForm = ({
             <Button
               type="button"
               className="Button Button--inverted Button--icon Button--add-icon"
-              onClick={addList}
+              onClick={() =>
+                dispatch({
+                  type: `addCriteriaList`,
+                })
+              }
             >
               Add Criterion
             </Button>
             <ol>
-              {criteriaList.map((item, index) => (
+              {state.acceptanceCriteria.map((item, index) => (
                 <li key={index}>
                   <div className="criterion-fake-input">
                     <TextInput
                       name={`criterion-input-${index}`}
                       className="form-input"
                       onInput={(e) => changeCriterion(e, index)}
+                      value={item}
                     />
                     <Button
                       type="button"
                       className="Button Button--rem"
-                      onClick={() => remList(index)}
+                      onClick={() =>
+                        dispatch({
+                          type: `remCriteriaList`,
+                          payload: { index },
+                        })
+                      }
                     >
                       ×
                     </Button>

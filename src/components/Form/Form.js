@@ -1,4 +1,3 @@
-import { useState } from 'preact/hooks';
 import UserStoryForm from '../UserStoryForm';
 import RadioInput from '../RadioInput/RadioInput';
 import FormField from '../FormField';
@@ -17,19 +16,6 @@ const Form = ({
   state,
   setDraftState,
 }) => {
-  const [criteriaList, setCriteriaList] = useState([``]);
-
-  const addList = () => {
-    setCriteriaList([...criteriaList, ``]);
-  };
-
-  const remList = (index) => {
-    setCriteriaList([
-      ...criteriaList.slice(0, index),
-      ...criteriaList.slice(index + 1),
-    ]);
-  };
-
   const changeCriterion = (e, index) => {
     const currentInput = e.target;
     dispatch({
@@ -104,20 +90,24 @@ const Form = ({
           className="TextArea__summary"
           id="summary"
           onInput={handleChange}
+          value={state.summary}
         />
       </FormField>
       {formType === `userStory` && (
         <UserStoryForm
-          addList={addList}
-          remList={remList}
           changeCriterion={changeCriterion}
           handleChange={handleChange}
           formData={formData}
-          criteriaList={criteriaList}
+          state={state}
+          dispatch={dispatch}
         />
       )}
       {formType === `bugReport` && (
-        <BugReportForm formData={bugFormData} handleChange={handleChange} />
+        <BugReportForm
+          formData={bugFormData}
+          handleChange={handleChange}
+          state={state}
+        />
       )}
       <Button
         className="Button Button--filled Button--icon Button--save-icon"

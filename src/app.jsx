@@ -32,6 +32,34 @@ const reducer = (state, action) => {
     const taskType = payload.value;
     return { ...state, taskType };
   }
+  if (type === `addCriteriaList`) {
+    const acceptanceCriteria = [...state.acceptanceCriteria];
+    acceptanceCriteria.push(``);
+    return {
+      ...state,
+      acceptanceCriteria,
+    };
+  }
+  if (type === `remCriteriaList`) {
+    const oldAcceptanceCriteria = [...state.acceptanceCriteria];
+    const { index } = payload;
+    const acceptanceCriteria = [
+      ...oldAcceptanceCriteria.slice(0, index),
+      ...oldAcceptanceCriteria.slice(index + 1),
+    ];
+    return {
+      ...state,
+      acceptanceCriteria,
+    };
+  }
+  if (type === `useDraft`) {
+    const { index } = payload;
+    const draftFromLocalStorage = JSON.parse(
+      localStorage.getItem(`formDraftState`)
+    );
+    const newState = draftFromLocalStorage[index];
+    return newState;
+  }
   throw new Error();
 };
 export function App() {
@@ -44,7 +72,12 @@ export function App() {
 
   return (
     <>
-      <Layout draftState={draftState}>
+      <Layout
+        draftState={draftState}
+        setDraftState={setDraftState}
+        dispatch={dispatch}
+        setFormType={setFormType}
+      >
         <Form
           setIsOutputEmpty={setIsOutputEmpty}
           formData={userStoryFormData}

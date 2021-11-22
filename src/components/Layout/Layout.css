@@ -39,6 +39,10 @@
 
     @media (min-width: 1600px) {
       right: 500px;
+
+      &--hidden {
+        right: -25px;
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import TextInput from '../TextInput';
 import TextArea from '../TextArea';
 import './BugReportForm.css';
 
-const BugReportForm = ({ handleChange, formData }) => (
+const BugReportForm = ({ handleChange, formData, state }) => (
   <form className="BugReportForm">
     {formData.map((item) => (
       <FormField
@@ -18,6 +18,7 @@ const BugReportForm = ({ handleChange, formData }) => (
             placeholder={item.placeholder}
             required={item.required}
             onInput={(e) => handleChange(e)}
+            value={state[item.id]}
           />
         )}
         {item.type === `textarea` && (
@@ -26,6 +27,7 @@ const BugReportForm = ({ handleChange, formData }) => (
             placeholder={item.placeholder}
             required={item.required}
             onInput={(e) => handleChange(e)}
+            value={state[item.id]}
           />
         )}
       </FormField>

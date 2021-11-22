@@ -31,6 +31,17 @@
     margin-right: 1rem;
   }
 
+  &--delete {
+    border-color: currentColor;
+    color: darkred;
+  }
+
+  &--draft-list-rem {
+    padding-bottom: 10px;
+    position: absolute;
+    right: 30px;
+  }
+
   &--icon::before {
     --icon-size: 20px;
 
@@ -54,8 +65,8 @@
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/copy.svg") no-repeat;
   }
 
-  &--edit-icon::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/edit.svg") no-repeat;
+  &--use-icon::before {
+    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/upload.svg") no-repeat;
   }
 
   &--save-icon::before {
