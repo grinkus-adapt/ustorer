@@ -4,7 +4,7 @@ import DraftList from '../DraftList';
 import Button from '../Button';
 import { useState } from 'preact/hooks';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, draftState }) => {
   const [sidebarState, setSidebarState] = useState(`visible`);
 
   const toggleSidebar = () => {
@@ -22,7 +22,6 @@ const Layout = ({ children }) => {
       );
       setSidebarState(`hidden`);
     }
-    console.log(draftList.getAttribute(`class`));
   };
 
   return (
@@ -30,7 +29,7 @@ const Layout = ({ children }) => {
       <Header />
       <div className="Layout__wrapper">
         <div className="Layout__content">{children}</div>
-        <DraftList />
+        <DraftList draftState={draftState} />
         <Button
           className="Button Layout__sidebar-toggle"
           onClick={() => toggleSidebar()}

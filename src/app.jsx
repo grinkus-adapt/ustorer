@@ -6,7 +6,8 @@ import { userStoryFormData } from './data/UserStoryForm';
 import { bugReportFormData } from './data/BugReportForm';
 import { useState, useReducer } from 'preact/hooks';
 
-const initialState = { acceptanceCriteria: [``] };
+const initialState = { acceptanceCriteria: [``], taskType: `userStory` };
+// const initialState = { ...JSON.parse(localStorage.getItem(`formDraftState`)) };
 
 const reducer = (state, action) => {
   const { type, payload } = action;
@@ -27,16 +28,23 @@ const reducer = (state, action) => {
       };
     }
   }
+  if (type === `changeTaskType`) {
+    const taskType = payload.value;
+    return { ...state, taskType };
+  }
   throw new Error();
 };
 export function App() {
   const [isOutputEmpty, setIsOutputEmpty] = useState(true);
   const [formType, setFormType] = useState(`userStory`);
+  const [draftState, setDraftState] = useState(
+    JSON.parse(localStorage.getItem(`formDraftState`))
+  );
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
-      <Layout>
+      <Layout draftState={draftState}>
         <Form
           setIsOutputEmpty={setIsOutputEmpty}
           formData={userStoryFormData}
@@ -44,6 +52,8 @@ export function App() {
           dispatch={dispatch}
           formType={formType}
           setFormType={setFormType}
+          state={state}
+          setDraftState={setDraftState}
         />
         {formType === `userStory` && (
           <UserStoryOutput

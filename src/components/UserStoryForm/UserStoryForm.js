@@ -38,7 +38,11 @@ const UserStoryForm = ({
         )}
         {item.type === `acceptanceCriteria` && (
           <>
-            <Button type="button" className="Button Button--inverted Button--icon Button--add-icon" onClick={addList}>
+            <Button
+              type="button"
+              className="Button Button--inverted Button--icon Button--add-icon"
+              onClick={addList}
+            >
               Add Criterion
             </Button>
             <ol>

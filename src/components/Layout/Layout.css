@@ -1,6 +1,6 @@
 .Layout {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 
   &__wrapper {
     display: flex;
@@ -19,7 +19,7 @@
     height: 50px;
     opacity: 50%;
     position: absolute;
-    right: 175px;
+    right: 185px;
     top: 50%;
     transform: translateY(-25px);
     width: 50px;

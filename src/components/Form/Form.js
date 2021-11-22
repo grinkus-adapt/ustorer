@@ -5,6 +5,7 @@ import FormField from '../FormField';
 import TextArea from '../TextArea';
 import './Form.css';
 import BugReportForm from '../BugReportForm/BugReportForm';
+import Button from '../Button';
 
 const Form = ({
   formData,
@@ -13,6 +14,8 @@ const Form = ({
   setIsOutputEmpty,
   formType,
   setFormType,
+  state,
+  setDraftState,
 }) => {
   const [criteriaList, setCriteriaList] = useState([``]);
 
@@ -46,6 +49,18 @@ const Form = ({
     e.preventDefault();
   };
 
+  const saveFormDraft = () => {
+    let newFormDraft = [];
+    const lSValues = localStorage.getItem(`formDraftState`);
+    if (lSValues) {
+      newFormDraft = [...JSON.parse(lSValues)];
+    }
+    // state comes from props
+    newFormDraft.push(state);
+    localStorage.setItem(`formDraftState`, JSON.stringify(newFormDraft));
+    setDraftState(newFormDraft);
+  };
+
   return (
     <div className="Form">
       <FormField
@@ -57,13 +72,27 @@ const Form = ({
           value="User Story"
           name="form-type"
           id="type-user-story"
-          onInput={() => setFormType(`userStory`)}
+          onInput={() => {
+            setFormType(`userStory`);
+            dispatch({
+              type: `changeTaskType`,
+              payload: { value: `userStory` },
+            });
+          }}
+          checked={formType === `userStory`}
         />
         <RadioInput
           value="Bug Report"
           name="form-type"
           id="type-bug-report"
-          onInput={() => setFormType(`bugReport`)}
+          onInput={() => {
+            setFormType(`bugReport`);
+            dispatch({
+              type: `changeTaskType`,
+              payload: { value: `bugReport` },
+            });
+          }}
+          checked={formType === `bugReport`}
         />
       </FormField>
       <FormField
@@ -90,6 +119,12 @@ const Form = ({
       {formType === `bugReport` && (
         <BugReportForm formData={bugFormData} handleChange={handleChange} />
       )}
+      <Button
+        className="Button Button--filled Button--icon Button--save-icon"
+        onClick={() => saveFormDraft()}
+      >
+        Save Draft
+      </Button>
     </div>
   );
 };

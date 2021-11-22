@@ -1,6 +1,6 @@
 import './RadioInput.css';
 
-const RadioInput = ({ id, name, value, onInput }) => (
+const RadioInput = ({ id, name, value, onInput, checked }) => (
   <div className="RadioInput">
     <input
       type="radio"
@@ -9,6 +9,7 @@ const RadioInput = ({ id, name, value, onInput }) => (
       id={id}
       className="RadioInput__selector"
       onInput={onInput}
+      checked={checked}
     />
     <label for={id} className="RadioInput__label">
       {value}

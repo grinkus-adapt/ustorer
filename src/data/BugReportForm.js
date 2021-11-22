@@ -1,6 +1,6 @@
 export const bugReportFormData = [
   {
-    id: `bug-description`,
+    id: `bugDescription`,
     label: `Description`,
     type: `textarea`,
     placeholder: ``,
