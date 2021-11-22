@@ -3,10 +3,11 @@
   display: inline-flex;
   flex-direction: column;
   gap: 0.5em;
+  height: 100%;
   padding: 4rem 2rem;
   width: 50%;
 
-  flex @media (min-width: 1080px) {
+  @media (min-width: 1080px) {
     padding: 4rem 6rem 4rem 2rem;
   }
 

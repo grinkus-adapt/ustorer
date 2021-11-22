@@ -14,11 +14,11 @@
 
   &__sidebar-toggle {
     position: absolute;
-    right: 200px;
+    right: 185px;
     top: 50%;
 
     &--hidden {
-      right: 20px;
+      right: 10px;
     }
   }
 }

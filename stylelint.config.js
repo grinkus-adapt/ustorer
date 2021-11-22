@@ -12,5 +12,6 @@ module.exports = {
         ignorePseudoClasses: [`export`],
       },
     ],
+    'selector-class-pattern': null,
   },
 };
