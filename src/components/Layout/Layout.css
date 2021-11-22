@@ -19,7 +19,7 @@
     height: 50px;
     opacity: 50%;
     position: absolute;
-    right: 185px;
+    right: 200px;
     top: 50%;
     transform: translateY(-25px);
     width: 50px;
@@ -35,6 +35,10 @@
 
     &--hidden {
       right: -25px;
+    }
+
+    @media (min-width: 1600px) {
+      right: 500px;
     }
   }
 }

@@ -42,4 +42,8 @@
       border: none;
     }
   }
+
+  @media (min-width: 1600px) {
+    width: 500px;
+  }
 }
