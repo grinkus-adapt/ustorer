@@ -13,12 +13,22 @@
   }
 
   &__sidebar-toggle {
+    /* !important because defaults are set in Button.css */
+    background-color: teal !important;
+    border-radius: 50% !important;
+    height: 50px;
     position: absolute;
-    right: 185px;
+    right: 175px;
     top: 50%;
+    transform: translateY(-25px);
+    width: 50px;
+
+    img {
+      filter: invert(98%) sepia(8%) saturate(24%) hue-rotate(184deg) brightness(113%) contrast(91%);
+    }
 
     &--hidden {
-      right: 10px;
+      right: -25px;
     }
   }
 }
