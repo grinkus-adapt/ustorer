@@ -50,7 +50,7 @@ const UserStoryForm = ({
             >
               Add Criterion
             </Button>
-            <ol>
+            <ol className="FormField__criteria-list">
               {state.acceptanceCriteria.map((item, index) => (
                 <li key={index}>
                   <div className="criterion-fake-input">

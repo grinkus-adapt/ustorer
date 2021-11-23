@@ -50,12 +50,18 @@
     }
   }
 
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__tooltip {
     background-color: rgb(0 0 0 / 70%);
     border-radius: 10px;
     color: #f4f4f4;
     margin-top: 1rem;
-    padding: 0.2rem 0.5rem;
+    padding: 0.5rem;
     text-align: center;
     visibility: visible;
     width: 50%;

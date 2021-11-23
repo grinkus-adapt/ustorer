@@ -72,7 +72,7 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
                 } `;
               })}
             </span>
-            <div className="UserStoryOutput__content--actions">
+            <div className="UserStoryOutput__actions">
               <Button
                 type="button"
                 className="Button Button--filled Button--icon Button--copy-icon"
@@ -80,9 +80,9 @@ const UserStoryOutput = ({ formData, inputData, isOutputEmpty }) => {
               >
                 Copy Output
               </Button>
-              <span className="UserStoryOutput__tooltip disabled">
+              <div className="UserStoryOutput__tooltip disabled">
                 Copied successfully!
-              </span>
+              </div>
             </div>
           </>
         )}

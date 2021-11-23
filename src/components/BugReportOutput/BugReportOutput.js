@@ -12,8 +12,7 @@ const BugReportOutput = ({ formData, inputData, isOutputEmpty }) => {
     tooltip.setAttribute(`class`, `BugReportOutput__tooltip disabled`);
     tooltip.setAttribute(`class`, `BugReportOutput__tooltip`);
     setTimeout(
-      () =>
-        tooltip.setAttribute(`class`, `BugReportOutput__tooltip disabled`),
+      () => tooltip.setAttribute(`class`, `BugReportOutput__tooltip disabled`),
       3000
     );
   };
@@ -79,7 +78,7 @@ const BugReportOutput = ({ formData, inputData, isOutputEmpty }) => {
                   );
               })}
             </span>
-            <div className="BugReportOutput__content--actions">
+            <div className="BugReportOutput__actions">
               <Button
                 type="button"
                 className="Button Button--filled Button--icon Button--copy-icon"
@@ -87,9 +86,9 @@ const BugReportOutput = ({ formData, inputData, isOutputEmpty }) => {
               >
                 Copy Output
               </Button>
-              <span className="BugReportOutput__tooltip disabled">
+              <div className="BugReportOutput__tooltip disabled">
                 Copied successfully!
-              </span>
+              </div>
             </div>
           </>
         )}
