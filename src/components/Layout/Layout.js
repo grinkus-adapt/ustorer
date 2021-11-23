@@ -48,18 +48,10 @@ const Layout = ({
           onClick={() => toggleSidebar()}
         >
           {sidebarState === `hidden` && (
-            <img
-              src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg"
-              width="20"
-              height="20"
-            />
+            <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg" />
           )}
           {sidebarState === `visible` && (
-            <img
-              src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg"
-              width="20"
-              height="20"
-            />
+            <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg" />
           )}
         </Button>
       </div>

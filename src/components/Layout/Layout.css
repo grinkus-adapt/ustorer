@@ -25,13 +25,12 @@
   &__sidebar-toggle {
     /* !important because defaults are set in Button.css */
     background-color: teal !important;
-    border-radius: 50% !important;
-    height: 50px;
+    border-radius: 0 !important;
+    height: 67px;
     opacity: 50%;
     position: absolute;
-    right: 200px;
-    top: 50%;
-    transform: translateY(-25px);
+    right: 0;
+    top: 0;
     width: 50px;
 
     &:hover {
@@ -39,20 +38,12 @@
     }
 
     img {
+      --icon-size: 20px;
+
       /* set the color of SVG to #f4f4f4 via online HEX to filter converter */
       filter: invert(98%) sepia(8%) saturate(24%) hue-rotate(184deg) brightness(113%) contrast(91%);
-    }
-
-    &--hidden {
-      right: 0;
-    }
-
-    @media (min-width: 1600px) {
-      right: 500px;
-
-      &--hidden {
-        right: 0;
-      }
+      height: var(--icon-size);
+      width: var(--icon-size);
     }
   }
 }
