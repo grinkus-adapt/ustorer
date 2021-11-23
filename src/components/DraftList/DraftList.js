@@ -1,7 +1,13 @@
 import './DraftList.css';
 import Button from '../Button';
 
-const DraftList = ({ draftState, setDraftState, dispatch, setFormType }) => {
+const DraftList = ({
+  draftState,
+  setDraftState,
+  dispatch,
+  setFormType,
+  setIsOutputEmpty,
+}) => {
   const deleteDraft = (index) => {
     const draftFromLocalStorage = JSON.parse(
       localStorage.getItem(`formDraftState`)
@@ -15,6 +21,7 @@ const DraftList = ({ draftState, setDraftState, dispatch, setFormType }) => {
   };
   return (
     <div className="DraftList">
+      <h2 className="DraftList__title">Saved Drafts</h2>
       {draftState &&
         draftState.map((item, index) => (
           <div
@@ -38,12 +45,13 @@ const DraftList = ({ draftState, setDraftState, dispatch, setFormType }) => {
                     payload: { index },
                   });
                   setFormType(item.taskType);
+                  setIsOutputEmpty(false);
                 }}
               >
                 Use Draft
               </Button>
               <Button
-                className="Button Button--inverted Button--delete"
+                className="Button Button--inverted Button--delete Button--icon Button--delete-icon"
                 onClick={() => deleteDraft(index)}
               >
                 Delete

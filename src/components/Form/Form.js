@@ -49,6 +49,7 @@ const Form = ({
 
   return (
     <div className="Form">
+      <h2 className="Form__title">Generation Form</h2>
       <FormField
         label="Choose Task type"
         labelFor="form-type"

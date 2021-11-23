@@ -77,6 +77,7 @@ export function App() {
         setDraftState={setDraftState}
         dispatch={dispatch}
         setFormType={setFormType}
+        setIsOutputEmpty={setIsOutputEmpty}
       >
         <Form
           setIsOutputEmpty={setIsOutputEmpty}

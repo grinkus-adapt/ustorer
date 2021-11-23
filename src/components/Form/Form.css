@@ -2,9 +2,14 @@
   background-color: #f3f3f3;
   display: inline-flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
+  height: 100%;
   padding: 4rem 2rem;
   width: 50%;
+
+  &__title {
+    color: teal;
+  }
 
   @media (min-width: 1080px) {
     padding: 4rem 2rem 4rem 6rem;

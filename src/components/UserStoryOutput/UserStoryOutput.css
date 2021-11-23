@@ -2,7 +2,7 @@
   background-color: #fbfbfb;
   display: inline-flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
   height: 100%;
   padding: 4rem 2rem;
   width: 50%;
@@ -13,7 +13,6 @@
 
   &__title {
     color: teal;
-    font-weight: 600;
   }
 
   &__content {

@@ -9,14 +9,14 @@
   font-size: 1.2rem;
   gap: 10px;
   justify-content: center;
-  padding: 0.2rem 0.4rem;
+  padding: 0.4rem;
 
   &:hover {
     opacity: 80%;
   }
 
   &--inverted {
-    border: 2px solid currentColor;
+    border: 1px solid currentColor;
   }
 
   &--filled {
@@ -71,5 +71,9 @@
 
   &--save-icon::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/save.svg") no-repeat;
+  }
+
+  &--delete-icon::before {
+    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg") no-repeat;
   }
 }

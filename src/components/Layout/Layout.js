@@ -10,6 +10,7 @@ const Layout = ({
   setDraftState,
   dispatch,
   setFormType,
+  setIsOutputEmpty,
 }) => {
   const [sidebarState, setSidebarState] = useState(`visible`);
 
@@ -40,6 +41,7 @@ const Layout = ({
           setDraftState={setDraftState}
           dispatch={dispatch}
           setFormType={setFormType}
+          setIsOutputEmpty={setIsOutputEmpty}
         />
         <Button
           className="Button Layout__sidebar-toggle"
