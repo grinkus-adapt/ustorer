@@ -12,8 +12,8 @@
     flex-direction: row;
     width: 100%;
 
-    @media (min-width: 1920px) {
-      width: 1920px;
+    @media (min-width: 1440px) {
+      width: 1440px;
     }
   }
 

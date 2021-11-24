@@ -4,9 +4,19 @@
   color: #f4f4f4;
   display: flex;
   height: 70px;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   width: 100%;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (min-width: 1440px) {
+      width: 1440px;
+    }
+  }
 
   &__content {
     align-items: flex-end;

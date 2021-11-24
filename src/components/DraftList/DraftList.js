@@ -28,9 +28,22 @@ const DraftList = ({
             key={index}
             className={`DraftList__container DraftList__container--${index}`}
           >
-            <span className="DraftList__container__summary">
-              {item.summary}
-            </span>
+            <div className="DraftList__container__title">
+              <span className="DraftList__container__summary">
+                {item.summary}
+              </span>
+              <Button
+                className="Button Button--delete"
+                onClick={() => deleteDraft(index)}
+              >
+                <img
+                  src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg"
+                  alt="Delete Draft"
+                  width="20"
+                  height="20"
+                />
+              </Button>
+            </div>
             <div className="DraftList__container__description">
               {item.taskType === `userStory`
                 ? item.storyDescription
@@ -38,7 +51,7 @@ const DraftList = ({
             </div>
             <div className="DraftList__container__actions">
               <Button
-                className="Button Button--filled Button--icon Button--use-icon"
+                className="Button Button--inverted Button--icon Button--use-icon"
                 onClick={() => {
                   dispatch({
                     type: `useDraft`,
@@ -49,12 +62,6 @@ const DraftList = ({
                 }}
               >
                 Use Draft
-              </Button>
-              <Button
-                className="Button Button--inverted Button--delete Button--icon Button--delete-icon"
-                onClick={() => deleteDraft(index)}
-              >
-                Delete
               </Button>
             </div>
           </div>

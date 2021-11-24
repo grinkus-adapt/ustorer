@@ -24,25 +24,27 @@ const Header = () => {
   };
   return (
     <div className="Header">
-      <div className="Header__fake-div" />
-      <div className="Header__content">
-        <span className="Header__title">Task Generator 1.0</span>
-        <span className="Header__text">by</span>
-        <a href="https://adaptagency.com/" target="_blank" rel="noreferrer">
-          <Logo className="Header__logo" />
-        </a>
+      <div className="Header__wrapper">
+        <div className="Header__fake-div" />
+        <div className="Header__content">
+          <span className="Header__title">Task Generator 1.0</span>
+          <span className="Header__text">by</span>
+          <a href="https://adaptagency.com/" target="_blank" rel="noreferrer">
+            <Logo className="Header__logo" />
+          </a>
+        </div>
+        <Button
+          className="Button Header__sidebar-toggle"
+          onClick={() => toggleSidebar()}
+        >
+          {sidebarState === `hidden` && (
+            <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg" />
+          )}
+          {sidebarState === `visible` && (
+            <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg" />
+          )}
+        </Button>
       </div>
-      <Button
-        className="Button Header__sidebar-toggle"
-        onClick={() => toggleSidebar()}
-      >
-        {sidebarState === `hidden` && (
-          <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-left.svg" />
-        )}
-        {sidebarState === `visible` && (
-          <img src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-double-right.svg" />
-        )}
-      </Button>
     </div>
   );
 };

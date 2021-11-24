@@ -32,8 +32,7 @@
   }
 
   &--delete {
-    border-color: currentColor;
-    color: darkred;
+    filter: invert(28%) sepia(69%) saturate(5390%) hue-rotate(166deg) brightness(92%) contrast(102%);
   }
 
   &--draft-list-rem {
