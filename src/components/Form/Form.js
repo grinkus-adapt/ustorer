@@ -7,8 +7,7 @@ import BugReportForm from '../BugReportForm/BugReportForm';
 import Button from '../Button';
 
 const Form = ({
-  formData,
-  bugFormData,
+  FormData,
   dispatch,
   setIsOutputEmpty,
   formType,
@@ -98,14 +97,14 @@ const Form = ({
         <UserStoryForm
           changeCriterion={changeCriterion}
           handleChange={handleChange}
-          formData={formData}
+          FormData={FormData}
           state={state}
           dispatch={dispatch}
         />
       )}
       {formType === `bugReport` && (
         <BugReportForm
-          formData={bugFormData}
+          FormData={FormData}
           handleChange={handleChange}
           state={state}
         />

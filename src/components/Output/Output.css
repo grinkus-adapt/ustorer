@@ -1,4 +1,4 @@
-.UserStoryOutput {
+.Output {
   background-color: var(--light-color);
   display: inline-flex;
   flex-direction: column;
@@ -26,6 +26,8 @@
   }
 
   &__description,
+  &__browser,
+  &__devices,
   &__acceptance-criteria {
     &--label {
       color: var(--primary-color);

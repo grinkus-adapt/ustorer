@@ -1,10 +1,8 @@
 import Layout from './components/Layout';
 import Form from './components/Form';
-import UserStoryOutput from './components/UserStoryOutput';
-import BugReportOutput from './components/BugReportOutput';
-import { userStoryFormData } from './data/UserStoryForm';
-import { bugReportFormData } from './data/BugReportForm';
+import FormData from './data';
 import { useState, useReducer } from 'preact/hooks';
+import Output from './components/Output';
 
 const initialState = { acceptanceCriteria: [``], taskType: `userStory` };
 // const initialState = { ...JSON.parse(localStorage.getItem(`formDraftState`)) };
@@ -81,28 +79,19 @@ export function App() {
       >
         <Form
           setIsOutputEmpty={setIsOutputEmpty}
-          formData={userStoryFormData}
-          bugFormData={bugReportFormData}
+          FormData={FormData}
           dispatch={dispatch}
           formType={formType}
           setFormType={setFormType}
           state={state}
           setDraftState={setDraftState}
         />
-        {formType === `userStory` && (
-          <UserStoryOutput
-            isOutputEmpty={isOutputEmpty}
-            formData={userStoryFormData}
-            inputData={state}
-          />
-        )}
-        {formType === `bugReport` && (
-          <BugReportOutput
-            isOutputEmpty={isOutputEmpty}
-            formData={bugReportFormData}
-            inputData={state}
-          />
-        )}
+        <Output
+          isOutputEmpty={isOutputEmpty}
+          FormData={FormData}
+          inputData={state}
+          formType={formType}
+        />
       </Layout>
     </>
   );

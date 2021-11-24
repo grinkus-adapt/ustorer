@@ -1,4 +1,4 @@
-export const userStoryFormData = [
+const FormData = [
   {
     id: `persona`,
     label: `As a`,
@@ -24,7 +24,7 @@ export const userStoryFormData = [
     required: true,
   },
   {
-    id: `storyDescription`,
+    id: `description`,
     label: `Description`,
     type: `textarea`,
     placeholder: ``,
@@ -39,4 +39,22 @@ export const userStoryFormData = [
     className: `FormField__criteria`,
     required: false,
   },
+  {
+    id: `browser`,
+    label: `Browser`,
+    type: `textinput`,
+    placeholder: `Chrome 15.0, Firefox 13.2`,
+    className: ``,
+    required: true,
+  },
+  {
+    id: `devices`,
+    label: `Devices`,
+    type: `textinput`,
+    placeholder: `Android 12, iOS 8`,
+    className: ``,
+    required: false,
+  },
 ];
+
+export default FormData;
