@@ -1,10 +1,60 @@
 import UserStoryForm from '../UserStoryForm';
-import RadioInput from '../RadioInput/RadioInput';
 import FormField from '../FormField';
 import TextArea from '../TextArea';
+import RadioInput from '../RadioInput';
 import './Form.css';
 import BugReportForm from '../BugReportForm/BugReportForm';
 import Button from '../Button';
+
+const SummaryFormField = ({ handleChange, state }) => (
+  <FormField
+    label="Summary"
+    labelFor="form-summary"
+    className="FormField__summary"
+  >
+    <TextArea
+      className="TextArea__summary"
+      id="summary"
+      onInput={handleChange}
+      value={state.summary}
+    />
+  </FormField>
+);
+
+const TaskTypeField = ({ formType, setFormType, dispatch }) => (
+  <FormField
+    label="Choose Task type"
+    labelFor="form-type"
+    className="FormField__type-select"
+  >
+    <RadioInput
+      value="User Story"
+      name="form-type"
+      id="type-user-story"
+      onInput={() => {
+        setFormType(`userStory`);
+        dispatch({
+          type: `changeTaskType`,
+          payload: { value: `userStory` },
+        });
+      }}
+      checked={formType === `userStory`}
+    />
+    <RadioInput
+      value="Bug Report"
+      name="form-type"
+      id="type-bug-report"
+      onInput={() => {
+        setFormType(`bugReport`);
+        dispatch({
+          type: `changeTaskType`,
+          payload: { value: `bugReport` },
+        });
+      }}
+      checked={formType === `bugReport`}
+    />
+  </FormField>
+);
 
 const Form = ({
   FormData,
@@ -49,50 +99,12 @@ const Form = ({
   return (
     <div className="Form">
       <h2 className="Form__title">Generation Form</h2>
-      <FormField
-        label="Choose Task type"
-        labelFor="form-type"
-        className="form-type-select"
-      >
-        <RadioInput
-          value="User Story"
-          name="form-type"
-          id="type-user-story"
-          onInput={() => {
-            setFormType(`userStory`);
-            dispatch({
-              type: `changeTaskType`,
-              payload: { value: `userStory` },
-            });
-          }}
-          checked={formType === `userStory`}
-        />
-        <RadioInput
-          value="Bug Report"
-          name="form-type"
-          id="type-bug-report"
-          onInput={() => {
-            setFormType(`bugReport`);
-            dispatch({
-              type: `changeTaskType`,
-              payload: { value: `bugReport` },
-            });
-          }}
-          checked={formType === `bugReport`}
-        />
-      </FormField>
-      <FormField
-        label="Summary"
-        labelFor="form-summary"
-        className="FormField__summary"
-      >
-        <TextArea
-          className="TextArea__summary"
-          id="summary"
-          onInput={handleChange}
-          value={state.summary}
-        />
-      </FormField>
+      <TaskTypeField
+        formType={formType}
+        setFormType={setFormType}
+        dispatch={dispatch}
+      />
+      <SummaryFormField handleChange={handleChange} state={state} />
       {formType === `userStory` && (
         <UserStoryForm
           changeCriterion={changeCriterion}

@@ -5,18 +5,18 @@
   margin-bottom: 1rem;
   width: 100%;
 
-  &.form-type-select {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
   > label {
     font-weight: 600;
   }
 
   label::first-letter {
     text-transform: uppercase;
+  }
+
+  &__type-select {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
   }
 
   &__description,
