@@ -46,7 +46,7 @@
   }
 
   &__criteria-list li::marker {
-    color: teal;
+    color: var(--primary-color);
     font-weight: 600;
   }
 }

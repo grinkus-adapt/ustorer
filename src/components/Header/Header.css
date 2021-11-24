@@ -1,7 +1,7 @@
 .Header {
   align-items: center;
-  background-color: #333;
-  color: #f4f4f4;
+  background-color: var(--dark-color);
+  color: var(--grey-color);
   display: flex;
   height: 70px;
   justify-content: center;
@@ -43,7 +43,7 @@
 
   &__sidebar-toggle {
     /* !important because defaults are set in Button.css */
-    background-color: teal !important;
+    background-color: var(--primary-color) !important;
     border-radius: 0 !important;
     height: 70px;
     opacity: 50%;

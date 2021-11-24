@@ -3,7 +3,7 @@
   background: none;
   border: none;
   border-radius: 5px;
-  color: teal;
+  color: var(--primary-color);
   cursor: pointer;
   display: flex;
   font-size: 1.2rem;
@@ -20,13 +20,13 @@
   }
 
   &--filled {
-    background-color: teal;
+    background-color: var(--primary-color);
     color: #fff;
   }
 
   &--rem {
     background: none;
-    color: teal;
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin-right: 1rem;
   }

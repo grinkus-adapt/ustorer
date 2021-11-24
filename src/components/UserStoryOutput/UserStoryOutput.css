@@ -1,5 +1,5 @@
 .UserStoryOutput {
-  background-color: #fbfbfb;
+  background-color: var(--light-color);
   display: inline-flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -12,7 +12,7 @@
   }
 
   &__title {
-    color: teal;
+    color: var(--primary-color);
   }
 
   &__content {
@@ -32,7 +32,7 @@
   &__description,
   &__acceptance-criteria {
     &--label {
-      color: teal;
+      color: var(--primary-color);
       display: flex;
       padding: 1rem 0 0.5rem;
     }
@@ -60,7 +60,7 @@
   &__tooltip {
     background-color: rgb(0 0 0 / 70%);
     border-radius: 10px;
-    color: #f4f4f4;
+    color: var(--grey-color);
     margin-top: 1rem;
     padding: 0.5rem;
     text-align: center;
