@@ -22,7 +22,6 @@ const DraftList = ({
   return (
     <div className="DraftList">
       <h2 className="DraftList__title">Saved Drafts</h2>
-      {console.log(`draftState: `, draftState)}
       {draftState &&
         draftState.map((item, index) => (
           <div
