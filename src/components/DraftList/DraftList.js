@@ -22,6 +22,7 @@ const DraftList = ({
   return (
     <div className="DraftList">
       <h2 className="DraftList__title">Saved Drafts</h2>
+      {console.log(`draftState: `, draftState)}
       {draftState &&
         draftState.map((item, index) => (
           <div
@@ -66,6 +67,9 @@ const DraftList = ({
             </div>
           </div>
         ))}
+      {draftState.length < 1 && (
+        <span className="DraftList__container--empty">No drafts saved..</span>
+      )}
     </div>
   );
 };

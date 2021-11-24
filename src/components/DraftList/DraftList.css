@@ -23,6 +23,14 @@
     gap: 0.5rem;
     padding: 1rem;
 
+    &--empty {
+      align-items: center;
+      color: rgb(0 0 0 / 50%);
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+
     &__title {
       display: grid;
       grid-template-columns: 1fr 30px;
