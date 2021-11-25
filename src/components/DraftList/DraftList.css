@@ -12,12 +12,6 @@
   right: 0;
   width: 300px;
 
-  @media (min-width: 820px) {
-    box-shadow: none;
-    position: inherit;
-    width: 200px;
-  }
-
   &__title {
     color: var(--primary-color);
   }
@@ -88,6 +82,12 @@
     &__container {
       border: none;
     }
+  }
+
+  @media (min-width: 820px) {
+    box-shadow: none;
+    position: inherit;
+    width: 300px;
   }
 
   @media (min-width: 1400px) {
