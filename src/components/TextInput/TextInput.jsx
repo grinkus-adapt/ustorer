@@ -1,12 +1,12 @@
 import './TextInput.css';
 
-const TextInput = ({ name, placeholder, required, onInput, value }) => (
+const TextInput = ({ name, placeholder, required, onInput, value, className }) => (
   <>
     <input
       type="text"
       name={name}
       id={name}
-      className="TextInput"
+      className={`TextInput ${className}`}
       placeholder={placeholder}
       {...(required ? required : null)}
       onInput={onInput}
