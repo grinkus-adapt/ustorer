@@ -14,9 +14,10 @@
     width: 100%;
 
     &__sidebar-toggle {
+      gap: 0 !important; /* important because it's overwriten in button.css */
       position: absolute;
       right: 20px;
-      top: 2rem;
+      top: 1rem;
     }
 
     @media (min-width: 1440px) {
