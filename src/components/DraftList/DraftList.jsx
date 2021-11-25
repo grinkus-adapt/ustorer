@@ -44,6 +44,10 @@ const DraftList = ({
                 />
               </Button>
             </div>
+            <div className="DraftList__container__task-type">
+              {item.taskType === `userStory` && `User Story`}
+              {item.taskType === `bugReport` && `Bug Report`}
+            </div>
             <div className="DraftList__container__description">
               {item.description}
             </div>
