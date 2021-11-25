@@ -14,9 +14,14 @@
   }
 
   &__type-select {
-    display: flex;
+    display: grid;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.5rem;
+    grid-template-columns: 120px 120px;
+
+    > label {
+      grid-column: 1 / 3;
+    }
   }
 
   &__description,
