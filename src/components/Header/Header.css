@@ -16,7 +16,7 @@
   &__content {
     align-items: center;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     height: 70px;
   }
 
