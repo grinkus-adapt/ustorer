@@ -52,7 +52,7 @@ return(
               <>
                 <Button
                   type="button"
-                  className="Button Button--inverted Button--icon Button--add-icon"
+                  className="Button Button--inverted Button--icon Button--icon-add"
                   onClick={() =>
                     dispatch({
                       type: `addCriteriaList`,

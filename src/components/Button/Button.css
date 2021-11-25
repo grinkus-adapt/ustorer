@@ -12,7 +12,7 @@
   padding: 0.4rem;
 
   &:hover {
-    opacity: 80%;
+    opacity: 0.8;
   }
 
   &--inverted {
@@ -52,27 +52,35 @@
     width: var(--icon-size);
   }
 
-  &--copy-icon {
+  &--icon-copy {
     width: 100%;
   }
 
-  &--add-icon::before {
+  &--icon-add::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/plus.svg") no-repeat;
   }
 
-  &--copy-icon::before {
+  &--icon-copy::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/copy.svg") no-repeat;
   }
 
-  &--use-icon::before {
+  &--icon-use::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/upload.svg") no-repeat;
   }
 
-  &--save-icon::before {
+  &--icon-save::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/save.svg") no-repeat;
   }
 
-  &--delete-icon::before {
+  &--icon-delete::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg") no-repeat;
+  }
+
+  &--icon-toggle-open::before {
+    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-left.svg") no-repeat;
+  }
+
+  &--icon-toggle-close::before {
+    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-right.svg") no-repeat;
   }
 }

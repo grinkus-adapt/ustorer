@@ -121,7 +121,7 @@ const Form = ({
         />
       )}
       <Button
-        className="Button Button--filled Button--icon Button--save-icon"
+        className="Button Button--filled Button--icon Button--icon-save"
         onClick={() => saveFormDraft()}
       >
         Save Draft

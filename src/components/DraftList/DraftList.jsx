@@ -53,7 +53,7 @@ const DraftList = ({
             </div>
             <div className="DraftList__container__actions">
               <Button
-                className="Button Button--inverted Button--icon Button--use-icon"
+                className="Button Button--inverted Button--icon Button--icon-use"
                 onClick={() => {
                   dispatch({
                     type: `useDraft`,

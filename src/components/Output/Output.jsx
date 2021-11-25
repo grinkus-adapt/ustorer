@@ -103,7 +103,7 @@ const Output = ({ FormData, inputData, isOutputEmpty, formType }) => {
             <div className="Output__actions">
               <Button
                 type="button"
-                className="Button Button--filled Button--icon Button--copy-icon"
+                className="Button Button--filled Button--icon Button--icon-copy"
                 onClick={() => copyOutput(`.Output__content--body`)}
               >
                 Copy Output
