@@ -28,7 +28,10 @@ const DraftList = ({
             key={index}
             className={`DraftList__container DraftList__container--${index}`}
           >
-            <div className={`DraftList__container__task-type ${item.taskType === `userStory` ? `DraftList__container__task-type--story` : `DraftList__container__task-type--bug`}`}>
+            <div className={`DraftList__container__task-type ${
+              item.taskType === `userStory`
+            ? `DraftList__container__task-type--story`
+            : `DraftList__container__task-type--bug`}`}>
               {item.taskType === `userStory` && `User Story`}
               {item.taskType === `bugReport` && `Bug Report`}
             </div>
@@ -37,15 +40,10 @@ const DraftList = ({
                 {item.summary}
               </span>
               <Button
-                className="Button Button--delete"
+                className="Button Button--delete Button--icon Button--icon-delete"
                 onClick={() => deleteDraft(index)}
               >
-                <img
-                  src="../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg"
-                  alt="Delete Draft"
-                  width="20"
-                  height="20"
-                />
+                {` `}
               </Button>
             </div>
 

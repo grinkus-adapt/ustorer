@@ -32,11 +32,18 @@
   }
 
   &__logo {
-    margin-top: 7px; /* aligh horizontally with title */
+    margin-top: 20px; /* aligh horizontally with title */
     padding-left: 1rem;
+    width: 200px;
 
-    img {
-      width: 150px;
+    &::before {
+      background-color: #fff;
+      content: "";
+      display: inline-block;
+      height: 50px;
+      mask: url("../../assets/images/logo_secondary.svg") no-repeat;
+      mask-size: contain;
+      width: 200px;
     }
   }
 

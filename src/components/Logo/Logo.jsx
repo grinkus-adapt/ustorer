@@ -1,11 +1,7 @@
 import './Logo.css';
 
 const Logo = ({ className }) => (
-  <img
-    src="../../../src/assets/images/logo_secondary.svg"
-    alt="Adapt"
-    className={`Logo ${className}`}
-  />
+  <div className={className} />
 );
 
 export default Logo;
