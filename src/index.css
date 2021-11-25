@@ -30,6 +30,14 @@ h4 {
   padding: 0;
 }
 
+label {
+  font-weight: 600;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
