@@ -8,28 +8,22 @@
   position: relative;
   width: 100%;
 
+  &__wrapper {
+    max-width: 1440px;
+    width: 100%;
+  }
+
   &__content {
-    align-items: flex-end;
+    align-items: center;
     display: flex;
+    gap: 2rem;
+    height: 70px;
   }
 
-  &__title,
-  &__text {
-    display: none;
-    font-family: "Bebas Neue", cursive;
-    font-size: 2.5rem;
-    letter-spacing: 1rem;
-    text-shadow: 6px 6px 0 rgb(0 0 0 / 20%);
-
-    @media (min-width: 640px) {
-      display: inherit;
-    }
-  }
-
-  &__text {
-    font-size: 1.5rem;
-    letter-spacing: normal;
-    margin: 0 1rem 6px; /* 6px bottom margin to align with title */
+  &__title {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 
   &__logo {

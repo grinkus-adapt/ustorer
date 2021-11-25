@@ -7,13 +7,14 @@ const Header = () => {
 
   return (
     <div className="Header">
+      <div className="Header__wrapper">
         <div className="Header__content">
-          <span className="Header__title">Task Generator 1.0</span>
-          <span className="Header__text">by</span>
           <a href="https://adaptagency.com/" target="_blank" rel="noreferrer">
             <Logo className="Header__logo" />
           </a>
+          <span className="Header__title">Task Generator</span>
         </div>
+      </div>
     </div>
   );
 };
