@@ -49,39 +49,23 @@
     &__description {
       color: var(--dark-color);
       display: block;
-      line-height: 1.6rem; /* 1.6 × 3 (number of lines  to show) = 4.8 */
-      max-height: 4.8rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      word-wrap: break-word;
-
-      /* or inline-block */
     }
 
     &__actions {
       display: flex;
-      flex-direction: column;
-      gap: 5px;
       width: 100%;
 
       > button {
         width: 100%;
-      }
-
-      @media (min-width: 1400px) {
-        flex-direction: row;
-        gap: 1rem;
       }
     }
   }
 
   &--hidden {
     display: none;
-
-    &__container {
-      border: none;
-    }
   }
 
   @media (min-width: 820px) {
