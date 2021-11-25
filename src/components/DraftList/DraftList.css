@@ -1,13 +1,22 @@
 .DraftList {
   background-color: var(--grey-color);
+  box-shadow: 5px 0 15px var(--dark-color);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   gap: 0.5rem;
+  height: 100%;
   overflow: hidden;
   padding: 4rem 1rem;
-  position: relative;
-  width: 200px;
+  position: absolute;
+  right: 0;
+  width: 300px;
+
+  @media (min-width: 640px) {
+    box-shadow: none;
+    position: inherit;
+    width: 200px;
+  }
 
   &__title {
     color: var(--primary-color);

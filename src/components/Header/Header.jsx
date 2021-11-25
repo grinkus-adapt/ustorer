@@ -7,8 +7,6 @@ const Header = () => {
 
   return (
     <div className="Header">
-      <div className="Header__wrapper">
-        <div className="Header__fake-div" />
         <div className="Header__content">
           <span className="Header__title">Task Generator 1.0</span>
           <span className="Header__text">by</span>
@@ -16,7 +14,6 @@ const Header = () => {
             <Logo className="Header__logo" />
           </a>
         </div>
-      </div>
     </div>
   );
 };
