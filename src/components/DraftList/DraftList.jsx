@@ -45,9 +45,7 @@ const DraftList = ({
               </Button>
             </div>
             <div className="DraftList__container__description">
-              {item.taskType === `userStory`
-                ? item.storyDescription
-                : item.bugDescription}
+              {item.description}
             </div>
             <div className="DraftList__container__actions">
               <Button
