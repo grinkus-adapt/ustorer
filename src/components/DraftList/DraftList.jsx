@@ -69,7 +69,7 @@ const DraftList = ({
             </div>
           </div>
         ))}
-      {draftState.length < 1 && (
+      {draftState?.length < 1 && (
         <span className="DraftList__container--empty">No drafts saved..</span>
       )}
     </div>
