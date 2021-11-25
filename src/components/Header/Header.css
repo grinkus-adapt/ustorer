@@ -16,18 +16,31 @@
   &__content {
     align-items: center;
     display: flex;
-    gap: 2.5rem;
     height: 70px;
-    padding-left: 0.5rem;
+    justify-content: space-between;
   }
 
   &__title {
+    display: none;
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
+
+    @media (min-width: 640px) {
+      display: inherit;
+    }
   }
 
   &__logo {
-    width: 40px;
+    margin-top: 7px; /* aligh horizontally with title */
+    padding-left: 1rem;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  &__fake-div {
+    width: 200px;
   }
 }
