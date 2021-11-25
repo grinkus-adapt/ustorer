@@ -110,7 +110,6 @@ const Form = ({
           changeCriterion={changeCriterion}
           handleChange={handleChange}
           FormData={FormData}
-          state={state}
           dispatch={dispatch}
         />
       )}

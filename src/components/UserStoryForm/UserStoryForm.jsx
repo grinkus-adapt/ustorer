@@ -3,14 +3,19 @@ import TextInput from '../TextInput';
 import TextArea from '../TextArea';
 import Button from '../Button';
 import './UserStoryForm.css';
+import { useContext } from 'preact/hooks';
+import { stateContext } from '../../app';
 
 const UserStoryForm = ({
   FormData,
   handleChange,
   changeCriterion,
-  state,
   dispatch,
-}) => (
+}) => {
+
+  const state = useContext(stateContext);
+
+return(
   <form className="UserStoryForm">
     {FormData.map(
       (item) =>
@@ -88,6 +93,6 @@ const UserStoryForm = ({
         )
     )}
   </form>
-);
+)};
 
 export default UserStoryForm;

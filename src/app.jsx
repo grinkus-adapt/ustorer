@@ -1,14 +1,18 @@
 import Layout from './components/Layout';
 import Form from './components/Form';
 import FormData from './data';
-import { useState, useReducer } from 'preact/hooks';
+import { useState, useReducer, useContext } from 'preact/hooks';
 import Output from './components/Output';
+import { createContext } from 'preact';
 
 const initialState = { acceptanceCriteria: [``], taskType: `userStory` };
 // const initialState = { ...JSON.parse(localStorage.getItem(`formDraftState`)) };
 
+export const stateContext = createContext();
+
 const reducer = (state, action) => {
   const { type, payload } = action;
+
   if (type === `setIdValue`) {
     const { id, value } = payload;
     if (value !== state[id]) {
@@ -16,6 +20,7 @@ const reducer = (state, action) => {
     }
     return state;
   }
+
   if (type === `setCriterionValue`) {
     if (payload.value !== state.acceptanceCriteria[payload.id]) {
       const acceptanceCriteria = [...state.acceptanceCriteria];
@@ -26,10 +31,12 @@ const reducer = (state, action) => {
       };
     }
   }
+
   if (type === `changeTaskType`) {
     const taskType = payload.value;
     return { ...state, taskType };
   }
+
   if (type === `addCriteriaList`) {
     const acceptanceCriteria = [...state.acceptanceCriteria];
     acceptanceCriteria.push(``);
@@ -38,6 +45,7 @@ const reducer = (state, action) => {
       acceptanceCriteria,
     };
   }
+
   if (type === `remCriteriaList`) {
     const oldAcceptanceCriteria = [...state.acceptanceCriteria];
     const { index } = payload;
@@ -50,6 +58,7 @@ const reducer = (state, action) => {
       acceptanceCriteria,
     };
   }
+
   if (type === `useDraft`) {
     const { index } = payload;
     const draftFromLocalStorage = JSON.parse(
@@ -58,8 +67,10 @@ const reducer = (state, action) => {
     const newState = draftFromLocalStorage[index];
     return newState;
   }
+
   throw new Error();
 };
+
 export function App() {
   const [isOutputEmpty, setIsOutputEmpty] = useState(true);
   const [formType, setFormType] = useState(`userStory`);
@@ -69,7 +80,7 @@ export function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <>
+    <stateContext.Provider value={state}>
       <Layout
         draftState={draftState}
         setDraftState={setDraftState}
@@ -93,6 +104,6 @@ export function App() {
           formType={formType}
         />
       </Layout>
-    </>
+    </stateContext.Provider>
   );
 }
