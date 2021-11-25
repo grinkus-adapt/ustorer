@@ -44,7 +44,7 @@
 
   &__criteria-list li::marker {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: var(--fw-bold);
   }
 }
 

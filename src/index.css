@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   height: 100%;
   margin: 0;
   padding: 0;
@@ -31,7 +31,7 @@ h4 {
 }
 
 label {
-  font-weight: 600;
+  font-weight: var(--fw-bold);
 
   &::first-letter {
     text-transform: uppercase;
