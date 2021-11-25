@@ -26,6 +26,16 @@
     gap: 0.5rem;
     padding: 1rem;
 
+    &__task-type {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: -0.5rem;
+      text-transform: uppercase;
+
+      &--story { color: #eb7100; }
+      &--bug { color: #d40109; }
+    }
+
     &--empty {
       align-items: center;
       color: rgb(0 0 0 / 50%);

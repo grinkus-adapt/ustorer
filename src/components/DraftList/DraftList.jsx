@@ -28,6 +28,10 @@ const DraftList = ({
             key={index}
             className={`DraftList__container DraftList__container--${index}`}
           >
+            <div className={`DraftList__container__task-type ${item.taskType === `userStory` ? `DraftList__container__task-type--story` : `DraftList__container__task-type--bug`}`}>
+              {item.taskType === `userStory` && `User Story`}
+              {item.taskType === `bugReport` && `Bug Report`}
+            </div>
             <div className="DraftList__container__title">
               <span className="DraftList__container__summary">
                 {item.summary}
@@ -44,10 +48,7 @@ const DraftList = ({
                 />
               </Button>
             </div>
-            <div className="DraftList__container__task-type">
-              {item.taskType === `userStory` && `User Story`}
-              {item.taskType === `bugReport` && `Bug Report`}
-            </div>
+
             <div className="DraftList__container__description">
               {item.description}
             </div>
