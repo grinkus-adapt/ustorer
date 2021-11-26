@@ -2,6 +2,8 @@ import FormField from '../FormField';
 import TextInput from '../TextInput';
 import TextArea from '../TextArea';
 import './BugReportForm.css';
+import { formContext } from '../../contexts';
+import { connect } from '../../utilities/connect';
 
 const BugReportForm = ({ handleChange, FormData, state }) => (
   <form className="BugReportForm">
@@ -40,4 +42,4 @@ const BugReportForm = ({ handleChange, FormData, state }) => (
   </form>
 );
 
-export default BugReportForm;
+export default connect(formContext)(BugReportForm);

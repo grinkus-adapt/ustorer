@@ -1,13 +1,12 @@
 import './DraftList.css';
 import Button from '../Button';
+import { connect, mapActionsToProps } from '../../utilities/connect';
+import { formContext } from '../../contexts';
 
-const DraftList = ({
-  draftState,
-  setDraftState,
-  dispatch,
-  setFormType,
-  setIsOutputEmpty,
-}) => {
+const DraftList = connect(
+  formContext,
+  mapActionsToProps([`useDraft`])
+)(({ draftState, setDraftState, useDraft, setFormType, setIsOutputEmpty }) => {
   const deleteDraft = (index) => {
     const draftFromLocalStorage = JSON.parse(
       localStorage.getItem(`formDraftState`)
@@ -28,10 +27,13 @@ const DraftList = ({
             key={index}
             className={`DraftList__container DraftList__container--${index}`}
           >
-            <div className={`DraftList__container__task-type ${
-              item.taskType === `userStory`
-            ? `DraftList__container__task-type--story`
-            : `DraftList__container__task-type--bug`}`}>
+            <div
+              className={`DraftList__container__task-type ${
+                item.taskType === `userStory`
+                  ? `DraftList__container__task-type--story`
+                  : `DraftList__container__task-type--bug`
+              }`}
+            >
               {item.taskType === `userStory` && `User Story`}
               {item.taskType === `bugReport` && `Bug Report`}
             </div>
@@ -54,10 +56,7 @@ const DraftList = ({
               <Button
                 className="Button Button--inverted Button--icon Button--icon-use"
                 onClick={() => {
-                  dispatch({
-                    type: `useDraft`,
-                    payload: { index },
-                  });
+                  useDraft({ index });
                   setFormType(item.taskType);
                   setIsOutputEmpty(false);
                 }}
@@ -72,6 +71,6 @@ const DraftList = ({
       )}
     </div>
   );
-};
+});
 
 export default DraftList;

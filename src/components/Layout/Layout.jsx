@@ -8,7 +8,6 @@ const Layout = ({
   children,
   draftState,
   setDraftState,
-  dispatch,
   setFormType,
   setIsOutputEmpty,
 }) => {
@@ -24,35 +23,37 @@ const Layout = ({
       setSidebarState(`hidden`);
     }
   };
-  
-  return(
-  <div className="Layout">
-    <Header />
-    <div className="Layout__wrapper">
-      <div className="Layout__content">{children}</div>
-      <DraftList
-        draftState={draftState}
-        setDraftState={setDraftState}
-        dispatch={dispatch}
-        setFormType={setFormType}
-        setIsOutputEmpty={setIsOutputEmpty}
-      />
-      {sidebarState === `hidden` && (
-        <Button
-        className="Button Button--icon Button--icon-toggle-open Layout__wrapper__sidebar-toggle"
-        onClick={() => toggleSidebar()}>
-          Open Drafts
-        </Button>
-      )}
-      {sidebarState === `visible` && (
-        <Button
-        className="Button Button--icon Button--icon-toggle-close Layout__wrapper__sidebar-toggle"
-        onClick={() => toggleSidebar()}>
-          Close Drafts
-        </Button>
-      )}
+
+  return (
+    <div className="Layout">
+      <Header />
+      <div className="Layout__wrapper">
+        <div className="Layout__content">{children}</div>
+        <DraftList
+          draftState={draftState}
+          setDraftState={setDraftState}
+          setFormType={setFormType}
+          setIsOutputEmpty={setIsOutputEmpty}
+        />
+        {sidebarState === `hidden` && (
+          <Button
+            className="Button Button--icon Button--icon-toggle-open Layout__wrapper__sidebar-toggle"
+            onClick={() => toggleSidebar()}
+          >
+            Open Drafts
+          </Button>
+        )}
+        {sidebarState === `visible` && (
+          <Button
+            className="Button Button--icon Button--icon-toggle-close Layout__wrapper__sidebar-toggle"
+            onClick={() => toggleSidebar()}
+          >
+            Close Drafts
+          </Button>
+        )}
+      </div>
     </div>
-  </div>
-)};
+  );
+};
 
 export default Layout;

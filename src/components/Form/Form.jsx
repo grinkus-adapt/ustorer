@@ -5,8 +5,10 @@ import RadioInput from '../RadioInput';
 import './Form.css';
 import BugReportForm from '../BugReportForm/BugReportForm';
 import Button from '../Button';
+import { connect, mapActionsToProps } from '../../utilities/connect';
+import { formContext } from '../../contexts';
 
-const SummaryFormField = ({ handleChange, state }) => (
+const SummaryFormField = connect(formContext)(({ handleChange, state }) => (
   <FormField
     label="Summary"
     labelFor="form-summary"
@@ -19,9 +21,12 @@ const SummaryFormField = ({ handleChange, state }) => (
       value={state.summary}
     />
   </FormField>
-);
+));
 
-const TaskTypeField = ({ formType, setFormType, dispatch }) => (
+const TaskTypeField = connect(
+  formContext,
+  mapActionsToProps([`changeTaskType`])
+)(({ formType, setFormType, changeTaskType }) => (
   <FormField
     label="Choose Task type"
     labelFor="form-type"
@@ -33,10 +38,7 @@ const TaskTypeField = ({ formType, setFormType, dispatch }) => (
       id="type-user-story"
       onInput={() => {
         setFormType(`userStory`);
-        dispatch({
-          type: `changeTaskType`,
-          payload: { value: `userStory` },
-        });
+        changeTaskType({ value: `userStory` });
       }}
       checked={formType === `userStory`}
     />
@@ -46,88 +48,76 @@ const TaskTypeField = ({ formType, setFormType, dispatch }) => (
       id="type-bug-report"
       onInput={() => {
         setFormType(`bugReport`);
-        dispatch({
-          type: `changeTaskType`,
-          payload: { value: `bugReport` },
-        });
+        changeTaskType({ value: `bugReport` });
       }}
       checked={formType === `bugReport`}
     />
   </FormField>
+));
+
+const Form = connect(
+  formContext,
+  mapActionsToProps([`setIdValue`, `setCriterionValue`])
+)(
+  ({
+    FormData,
+    setIdValue,
+    setCriterionValue,
+    setIsOutputEmpty,
+    formType,
+    setFormType,
+    setDraftState,
+    state,
+  }) => {
+    const changeCriterion = (e, index) => {
+      const currentInput = e.target;
+      setCriterionValue({ id: index, value: currentInput.value });
+      e.preventDefault();
+    };
+
+    const handleChange = (e) => {
+      const currentInput = e.target;
+      setIdValue({ id: currentInput.id, value: currentInput.value });
+      setIsOutputEmpty(false);
+      e.preventDefault();
+    };
+
+    const saveFormDraft = () => {
+      let newFormDraft = [];
+      const lSValues = localStorage.getItem(`formDraftState`);
+      if (lSValues) {
+        newFormDraft = [...JSON.parse(lSValues)];
+      }
+      // state comes from props
+      newFormDraft.push(state);
+      localStorage.setItem(`formDraftState`, JSON.stringify(newFormDraft));
+      setDraftState(newFormDraft);
+    };
+
+    return (
+      <div className="Form">
+        <h2 className="Form__title">Generation Form</h2>
+        <TaskTypeField formType={formType} setFormType={setFormType} />
+        <SummaryFormField handleChange={handleChange} />
+        {formType === `userStory` && (
+          <UserStoryForm
+            changeCriterion={changeCriterion}
+            handleChange={handleChange}
+            FormData={FormData}
+          />
+        )}
+        {formType === `bugReport` && (
+          <BugReportForm FormData={FormData} handleChange={handleChange} />
+        )}
+        <Button
+          className="Button Button--filled Button--icon Button--icon-save"
+          onClick={() => saveFormDraft()}
+        >
+          Save Draft
+        </Button>
+      </div>
+    );
+  }
 );
-
-const Form = ({
-  FormData,
-  dispatch,
-  setIsOutputEmpty,
-  formType,
-  setFormType,
-  state,
-  setDraftState,
-}) => {
-  const changeCriterion = (e, index) => {
-    const currentInput = e.target;
-    dispatch({
-      type: `setCriterionValue`,
-      payload: { id: index, value: currentInput.value },
-    });
-    e.preventDefault();
-  };
-
-  const handleChange = (e) => {
-    const currentInput = e.target;
-    dispatch({
-      type: `setIdValue`,
-      payload: { id: currentInput.id, value: currentInput.value },
-    });
-    setIsOutputEmpty(false);
-    e.preventDefault();
-  };
-
-  const saveFormDraft = () => {
-    let newFormDraft = [];
-    const lSValues = localStorage.getItem(`formDraftState`);
-    if (lSValues) {
-      newFormDraft = [...JSON.parse(lSValues)];
-    }
-    // state comes from props
-    newFormDraft.push(state);
-    localStorage.setItem(`formDraftState`, JSON.stringify(newFormDraft));
-    setDraftState(newFormDraft);
-  };
-
-  return (
-    <div className="Form">
-      <h2 className="Form__title">Generation Form</h2>
-      <TaskTypeField
-        formType={formType}
-        setFormType={setFormType}
-        dispatch={dispatch}
-      />
-      <SummaryFormField handleChange={handleChange} state={state} />
-      {formType === `userStory` && (
-        <UserStoryForm
-          changeCriterion={changeCriterion}
-          handleChange={handleChange}
-          FormData={FormData}
-          dispatch={dispatch}
-        />
-      )}
-      {formType === `bugReport` && (
-        <BugReportForm
-          FormData={FormData}
-          handleChange={handleChange}
-          state={state}
-        />
-      )}
-      <Button
-        className="Button Button--filled Button--icon Button--icon-save"
-        onClick={() => saveFormDraft()}
-      >
-        Save Draft
-      </Button>
-    </div>
-  );
-};
 
 export default Form;
