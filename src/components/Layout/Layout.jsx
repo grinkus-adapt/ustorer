@@ -16,10 +16,10 @@ const Layout = ({
   const toggleSidebar = () => {
     const draftList = document.querySelector(`.DraftList`);
     if (draftList.getAttribute(`class`) === `DraftList DraftList--hidden`) {
-      draftList.setAttribute(`class`, `DraftList`);
+      draftList.classList.remove(`DraftList--hidden`);
       setSidebarState(`visible`);
     } else {
-      draftList.setAttribute(`class`, `DraftList DraftList--hidden`);
+      draftList.classList.add(`DraftList--hidden`);
       setSidebarState(`hidden`);
     }
   };

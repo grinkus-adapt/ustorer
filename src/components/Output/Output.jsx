@@ -12,12 +12,9 @@ const Output = connect(formContext)(
 
     const showTooltip = () => {
       const tooltip = document.querySelector(`.Output__tooltip`);
-      tooltip.setAttribute(`class`, `Output__tooltip disabled`);
-      tooltip.setAttribute(`class`, `Output__tooltip`);
-      setTimeout(
-        () => tooltip.setAttribute(`class`, `Output__tooltip disabled`),
-        3000
-      );
+      tooltip.classList.add(`disabled`);
+      tooltip.classList.remove(`disabled`);
+      setTimeout(() => tooltip.classList.add(`disabled`), 3000);
     };
 
     const copyOutput = (className) => {
