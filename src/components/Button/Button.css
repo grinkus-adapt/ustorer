@@ -1,49 +1,18 @@
 .Button {
   --icon-size: 20px;
 
-  align-items: center;
   background: none;
   border: none;
   border-radius: 5px;
   color: var(--primary-color);
   cursor: pointer;
-  display: flex;
   font-size: 1.2rem;
   gap: 10px;
-  justify-content: center;
-  padding: 0.8rem 0.3rem;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0;
   position: relative;
-
-  > span {
-    opacity: 1;
-    position: relative;
-    right: 0;
-    transition: all 0.2s ease-in-out;
-  }
-
-  &--icon-save::before,
-  &--icon-add::before,
-  &--icon-use::before,
-  &--icon-copy::before {
-    left: 20px;
-    position: absolute;
-    transition: 0.2s ease-in-out;
-  }
-
-  &--success,
-  &:hover {
-    opacity: 0.8;
-
-    > span {
-      opacity: 0;
-      right: -40%;
-    }
-
-    &::before {
-      left: 50%;
-      margin-left: calc(var(--icon-size) / -2);
-    }
-  }
+  transition: opacity 0.2s ease-in-out;
 
   &--inverted {
     border: 1px solid currentColor;
@@ -54,74 +23,53 @@
     color: #fff;
   }
 
-  &--rem {
-    background: none;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-right: 1rem;
+  > span {
+    display: block;
+    opacity: 1;
+    padding: 0.8rem 0.3rem;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   }
 
-  &--delete::before {
-    color: darkred;
-  }
-
-  &--draft-list-rem {
-    padding-bottom: 10px;
-    position: absolute;
-    right: 30px;
-  }
-
-  &--icon::before {
-    background-color: currentColor;
-    content: "";
-    display: inline-block;
-    height: var(--icon-size);
-    mask-size: contain;
-    width: var(--icon-size);
-  }
-
-  &--icon-copy {
+  &--anim > svg {
+    transition: transform 0.2s ease-in-out;
     width: 100%;
   }
 
-  &--icon-add {
-    width: 100%;
+  .icon {
+    visibility: visible;
   }
 
-  &--icon-add::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/plus.svg") no-repeat;
+  .icon-check {
+    visibility: hidden;
   }
 
-  &--icon-copy::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/copy.svg") no-repeat;
-  }
+  &--success,
+  &--anim:hover {
+    opacity: 0.8;
 
-  &--icon-use::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/upload.svg") no-repeat;
-  }
+    > span {
+      opacity: 0;
+      transform: translateX(40%);
+    }
 
-  &--icon-save::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/save.svg") no-repeat;
-  }
-
-  &--icon-delete::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg") no-repeat;
-  }
-
-  &--icon-toggle-open::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-left.svg") no-repeat;
-  }
-
-  &--icon-toggle-close::before {
-    mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-right.svg") no-repeat;
+    > svg {
+      transform: translateX(0) !important;
+    }
   }
 
   &--success {
     background-color: green;
-    color: #fff;
 
-    &::before {
-      mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/check.svg") no-repeat;
+    .icon {
+      visibility: hidden;
+    }
+
+    .icon-check {
+      visibility: visible;
+    }
+
+    > svg {
+      fill: var(--light-color) !important;
     }
   }
 }

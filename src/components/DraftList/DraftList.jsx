@@ -1,6 +1,9 @@
 import './DraftList.css';
 import Button from '../Button';
 import { connect, mapActionsToProps } from '../../utilities/connect';
+import { ReactComponent as IconUse } from '@fortawesome/fontawesome-free/svgs/solid/upload.svg';
+import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
+import { ReactComponent as IconDelete } from '@fortawesome/fontawesome-free/svgs/solid/trash-alt.svg';
 import { formContext } from '../../contexts';
 
 const DraftList = connect(
@@ -50,10 +53,10 @@ const DraftList = connect(
                   {item.summary}
                 </span>
                 <Button
-                  className="Button Button--delete Button--icon Button--icon-delete"
+                  className="Button Button--delete DraftList__container__del-btn"
                   onClick={() => deleteDraft(index)}
                 >
-                  {` `}
+                  <IconDelete />
                 </Button>
               </div>
 
@@ -62,7 +65,7 @@ const DraftList = connect(
               </div>
               <div className="DraftList__container__actions">
                 <Button
-                  className="Button Button--inverted Button--icon Button--icon-use"
+                  className="Button Button--inverted Button--anim DraftList__container__actions__use-btn"
                   onClick={(e) => {
                     useDraft({ index });
                     setFormType(item.taskType);
@@ -70,6 +73,8 @@ const DraftList = connect(
                     setSuccessClass({ e });
                   }}
                 >
+                  <IconUse className="icon" />
+                  <IconCheck className="icon-check" />
                   <span>Use Draft</span>
                 </Button>
               </div>

@@ -1,4 +1,4 @@
-.summary-output-field {
+.SummaryOutputField {
   border-bottom: 2px solid;
   border-image-slice: 1;
   border-image-source:
@@ -19,5 +19,20 @@
 
   &__content {
     margin-bottom: 1rem;
+
+    &__actions {
+      &__copy-btn {
+        width: 100%;
+
+        > svg {
+          fill: var(--light-color);
+          height: 25px;
+          left: 0;
+          margin-top: 10px;
+          position: absolute;
+          transform: translateX(-40%);
+        }
+      }
+    }
   }
 }

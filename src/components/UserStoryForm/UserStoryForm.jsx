@@ -4,6 +4,8 @@ import TextArea from '../TextArea';
 import Button from '../Button';
 import './UserStoryForm.css';
 import { connect, mapActionsToProps } from '../../utilities/connect';
+import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
+import { ReactComponent as IconPlus } from '@fortawesome/fontawesome-free/svgs/solid/plus.svg';
 import { formContext } from '../../contexts';
 
 const UserStoryForm = connect(
@@ -65,7 +67,7 @@ const UserStoryForm = connect(
                           />
                           <Button
                             type="button"
-                            className="Button Button--rem"
+                            className="Button FormField__criteria-list__rem-btn"
                             onClick={() => remCriteriaList({ index })}
                           >
                             ×
@@ -76,12 +78,14 @@ const UserStoryForm = connect(
                   </ol>
                   <Button
                     type="button"
-                    className="Button Button--inverted Button--icon Button--icon-add"
+                    className="Button Button--inverted Button--anim FormField__criteria-list__add-btn"
                     onClick={(e) => {
                       addCriteriaList();
                       setSuccessClass({ e });
                     }}
                   >
+                    <IconPlus className="icon" />
+                    <IconCheck className="icon-check" />
                     <span>Add Criterion</span>
                   </Button>
                 </>

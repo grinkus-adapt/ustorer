@@ -13,15 +13,22 @@
     position: relative;
     width: 100%;
 
-    &__sidebar-toggle {
-      gap: 0 !important; /* important because it's overwriten in button.css */
-      position: absolute !important;
-      right: 20px;
-      top: 1rem;
-    }
-
     @media (min-width: 1440px) {
       width: 1440px;
+    }
+  }
+
+  &__sidebar-toggle {
+    align-items: center;
+    display: flex;
+    gap: 0 !important; /* important because it's overwriten in button.css */
+    position: absolute !important;
+    right: 20px;
+    top: 1rem;
+
+    > svg {
+      fill: var(--primary-color);
+      margin-right: 0.2rem;
     }
   }
 

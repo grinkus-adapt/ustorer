@@ -2,6 +2,8 @@ import './Layout.css';
 import Header from '../Header';
 import DraftList from '../DraftList';
 import { useState } from 'preact/hooks';
+import { ReactComponent as IconOpen } from '@fortawesome/fontawesome-free/svgs/solid/angle-left.svg';
+import { ReactComponent as IconClose } from '@fortawesome/fontawesome-free/svgs/solid/angle-right.svg';
 import Button from '../Button';
 
 const Layout = ({
@@ -37,17 +39,19 @@ const Layout = ({
         />
         {sidebarState === `hidden` && (
           <Button
-            className="Button Button--icon Button--icon-toggle-open Layout__wrapper__sidebar-toggle"
+            className="Button Button--icon Layout__sidebar-toggle"
             onClick={() => toggleSidebar()}
           >
+            <IconOpen />
             Open Drafts
           </Button>
         )}
         {sidebarState === `visible` && (
           <Button
-            className="Button Button--icon Button--icon-toggle-close Layout__wrapper__sidebar-toggle"
+            className="Button Button--icon Layout__sidebar-toggle"
             onClick={() => toggleSidebar()}
           >
+            <IconClose />
             Close Drafts
           </Button>
         )}

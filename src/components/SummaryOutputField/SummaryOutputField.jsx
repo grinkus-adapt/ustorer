@@ -1,28 +1,32 @@
 import Button from '../Button';
 import './SummaryOutputField.css';
 import { connect, mapActionsToProps } from '../../utilities/connect';
+import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
+import { ReactComponent as IconCopy } from '@fortawesome/fontawesome-free/svgs/solid/copy.svg';
 import { formContext } from '../../contexts';
 
 const SummaryOutputField = connect(
   formContext,
   mapActionsToProps([`setSuccessClass`])
 )(({ state, copyOutput, setSuccessClass }) => (
-  <div className="summary-output-field">
+  <div className="SummaryOutputField">
     <label
-      for="summary-output-field__content"
-      className="summary-output-field__title"
+      for="SummaryOutputField__content"
+      className="SummaryOutputField__title"
     >
       <b>Summary</b>
     </label>
-    <div className="summary-output-field__content">{state[`summary`]}</div>
-    <div className="summary-output-field__content--actions">
+    <div className="SummaryOutputField__content">{state[`summary`]}</div>
+    <div className="SummaryOutputField__content__actions">
       <Button
-        className="Button Button--filled Button--icon Button--icon-copy"
+        className="Button Button--filled Button--anim SummaryOutputField__content__actions__copy-btn"
         onClick={(e) => {
-          copyOutput(`.summary-output-field__content`);
+          copyOutput(`.SummaryOutputField__content`);
           setSuccessClass({ e });
         }}
       >
+        <IconCopy className="icon" />
+        <IconCheck className="icon-check" />
         <span>Copy Summary</span>
       </Button>
     </div>

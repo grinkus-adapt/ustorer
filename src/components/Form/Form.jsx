@@ -7,6 +7,8 @@ import BugReportForm from '../BugReportForm/BugReportForm';
 import Button from '../Button';
 import { connect, mapActionsToProps } from '../../utilities/connect';
 import { formContext } from '../../contexts';
+import { ReactComponent as IconSave } from '@fortawesome/fontawesome-free/svgs/solid/save.svg';
+import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
 
 const SummaryFormField = connect(formContext)(({ handleChange, state }) => (
   <FormField
@@ -111,12 +113,14 @@ const Form = connect(
           <BugReportForm FormData={FormData} handleChange={handleChange} />
         )}
         <Button
-          className="Button Button--filled Button--icon Button--icon-save"
+          className="Button Button--filled Button--anim Form__save-btn"
           onClick={(e) => {
             saveFormDraft();
             setSuccessClass({ e });
           }}
         >
+          <IconSave className="icon" />
+          <IconCheck className="icon-check" />
           <span>Save Draft</span>
         </Button>
       </div>

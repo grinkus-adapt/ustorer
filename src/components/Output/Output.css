@@ -53,6 +53,19 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+
+    &__copy-btn {
+      width: 100%;
+
+      > svg {
+        fill: var(--light-color);
+        height: 25px;
+        left: 0;
+        margin-top: 10px;
+        position: absolute;
+        transform: translateX(-40%);
+      }
+    }
   }
 
   &__tooltip {

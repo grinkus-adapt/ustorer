@@ -49,6 +49,10 @@
       grid-template-columns: 1fr 30px;
     }
 
+    &__del-btn {
+      fill: darkred;
+    }
+
     &__summary {
       align-items: center;
       display: flex;
@@ -68,8 +72,17 @@
       display: flex;
       width: 100%;
 
-      > button {
+      &__use-btn {
         width: 100%;
+
+        > svg {
+          fill: var(--primary-color);
+          height: 25px;
+          left: 0;
+          margin-top: 10px;
+          position: absolute;
+          transform: translateX(-40%);
+        }
       }
     }
   }

@@ -4,6 +4,8 @@ import useCopyAsMarkdown from '@cnakazawa/copy-as-markdown';
 import TurndownService from 'turndown';
 import SummaryOutputField from '../SummaryOutputField';
 import { connect, mapActionsToProps } from '../../utilities/connect';
+import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
+import { ReactComponent as IconCopy } from '@fortawesome/fontawesome-free/svgs/solid/copy.svg';
 import { formContext } from '../../contexts';
 
 const Output = connect(
@@ -97,12 +99,14 @@ const Output = connect(
             <div className="Output__actions">
               <Button
                 type="button"
-                className="Button Button--filled Button--icon Button--icon-copy"
+                className="Button Button--filled Button--anim Output__actions__copy-btn"
                 onClick={(e) => {
                   copyOutput(`.Output__content--body`);
                   setSuccessClass({ e });
                 }}
               >
+                <IconCopy className="icon" />
+                <IconCheck className="icon-check" />
                 <span>Copy Output</span>
               </Button>
             </div>
