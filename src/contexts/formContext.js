@@ -13,6 +13,7 @@ const actionsToCreate = [
   `addCriteriaList`,
   `remCriteriaList`,
   `useDraft`,
+  `setSuccessClass`,
 ];
 const createActions = (dispatch, actions) => {
   const output = {};

@@ -57,7 +57,7 @@ const TaskTypeField = connect(
 
 const Form = connect(
   formContext,
-  mapActionsToProps([`setIdValue`, `setCriterionValue`])
+  mapActionsToProps([`setIdValue`, `setCriterionValue`, `setSuccessClass`])
 )(
   ({
     FormData,
@@ -67,6 +67,7 @@ const Form = connect(
     formType,
     setFormType,
     setDraftState,
+    setSuccessClass,
     state,
   }) => {
     const changeCriterion = (e, index) => {
@@ -111,7 +112,10 @@ const Form = connect(
         )}
         <Button
           className="Button Button--filled Button--icon Button--icon-save"
-          onClick={() => saveFormDraft()}
+          onClick={(e) => {
+            saveFormDraft();
+            setSuccessClass({ e });
+          }}
         >
           Save Draft
         </Button>
