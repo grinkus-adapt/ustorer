@@ -5,7 +5,7 @@
     "dev": "npx vite",
     "build": "npx vite build",
     "predeploy": "git checkout public-build && git pull && git rebase remaster",
-    "deploy": "npm run build && rm -rf docs && mv dist docs && git add docs && git commit",
+    "deploy": "npm run build -- --base='/ustorer/' && rm -rf docs && mv dist docs && git add docs && git commit",
     "postdeploy": "git push && git checkout @{-1}",
     "serve": "npx vite preview"
   },
