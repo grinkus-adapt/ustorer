@@ -1,9 +1,12 @@
 import Button from '../Button';
 import './SummaryOutputField.css';
-import { connect } from '../../utilities/connect';
+import { connect, mapActionsToProps } from '../../utilities/connect';
 import { formContext } from '../../contexts';
 
-const SummaryOutputField = connect(formContext)(({ state, copyOutput }) => (
+const SummaryOutputField = connect(
+  formContext,
+  mapActionsToProps([`setSuccessClass`])
+)(({ state, copyOutput, setSuccessClass }) => (
   <div className="summary-output-field">
     <label
       for="summary-output-field__content"
@@ -15,9 +18,12 @@ const SummaryOutputField = connect(formContext)(({ state, copyOutput }) => (
     <div className="summary-output-field__content--actions">
       <Button
         className="Button Button--filled Button--icon Button--icon-copy"
-        onClick={() => copyOutput(`.summary-output-field__content`)}
+        onClick={(e) => {
+          copyOutput(`.summary-output-field__content`);
+          setSuccessClass({ e });
+        }}
       >
-        Copy Summary
+        <span>Copy Summary</span>
       </Button>
     </div>
   </div>

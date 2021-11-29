@@ -22,23 +22,16 @@
     display: flex;
   }
 
-  &__criteria {
-    display: grid;
-    grid-template-columns: auto auto;
+  &__criteria-list {
+    width: 100%;
+  }
 
+  &__criteria {
     label {
       align-items: center;
       display: flex;
       grid-column: 1/2;
       height: 100%;
-    }
-
-    button {
-      grid-column: 2/3;
-    }
-
-    ol {
-      grid-column: 1/3;
     }
   }
 

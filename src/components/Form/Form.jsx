@@ -117,7 +117,7 @@ const Form = connect(
             setSuccessClass({ e });
           }}
         >
-          Save Draft
+          <span>Save Draft</span>
         </Button>
       </div>
     );

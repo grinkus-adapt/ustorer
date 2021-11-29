@@ -1,4 +1,6 @@
 .Button {
+  --icon-size: 20px;
+
   align-items: center;
   background: none;
   border: none;
@@ -9,10 +11,38 @@
   font-size: 1.2rem;
   gap: 10px;
   justify-content: center;
-  padding: 0.4rem;
+  padding: 0.8rem 0.3rem;
+  position: relative;
 
+  > span {
+    opacity: 1;
+    position: relative;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &--icon-save::before,
+  &--icon-add::before,
+  &--icon-use::before,
+  &--icon-copy::before {
+    left: 20px;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+  }
+
+  &--success,
   &:hover {
     opacity: 0.8;
+
+    > span {
+      opacity: 0;
+      right: -40%;
+    }
+
+    &::before {
+      left: 50%;
+      margin-left: calc(var(--icon-size) / -2);
+    }
   }
 
   &--inverted {
@@ -42,8 +72,6 @@
   }
 
   &--icon::before {
-    --icon-size: 20px;
-
     background-color: currentColor;
     content: "";
     display: inline-block;
@@ -53,6 +81,10 @@
   }
 
   &--icon-copy {
+    width: 100%;
+  }
+
+  &--icon-add {
     width: 100%;
   }
 
@@ -82,5 +114,14 @@
 
   &--icon-toggle-close::before {
     mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/angle-right.svg") no-repeat;
+  }
+
+  &--success {
+    background-color: green;
+    color: #fff;
+
+    &::before {
+      mask: url("../../../node_modules/@fortawesome/fontawesome-free/svgs/solid/check.svg") no-repeat;
+    }
   }
 }

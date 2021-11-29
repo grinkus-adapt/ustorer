@@ -59,10 +59,10 @@ const formReducer = (state, action) => {
   if (type === `setSuccessClass`) {
     const { e } = payload;
     const selectedDiv = e.target;
-    selectedDiv.classList.add(`Button__success`);
+    selectedDiv.classList.add(`Button--success`);
     setTimeout(() => {
-      selectedDiv.classList.remove(`Button__success`);
-    }, 3000);
+      selectedDiv.classList.remove(`Button--success`);
+    }, 1500);
     return state;
   }
 

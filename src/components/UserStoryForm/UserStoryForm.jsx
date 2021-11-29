@@ -8,7 +8,7 @@ import { formContext } from '../../contexts';
 
 const UserStoryForm = connect(
   formContext,
-  mapActionsToProps([`addCriteriaList`, `remCriteriaList`])
+  mapActionsToProps([`addCriteriaList`, `remCriteriaList`, `setSuccessClass`])
 )(
   ({
     FormData,
@@ -17,6 +17,7 @@ const UserStoryForm = connect(
     remCriteriaList,
     state,
     addCriteriaList,
+    setSuccessClass,
   }) => (
     <form className="UserStoryForm">
       {FormData.map(
@@ -52,13 +53,6 @@ const UserStoryForm = connect(
               )}
               {item.type === `acceptanceCriteria` && (
                 <>
-                  <Button
-                    type="button"
-                    className="Button Button--inverted Button--icon Button--icon-add"
-                    onClick={() => addCriteriaList()}
-                  >
-                    Add Criterion
-                  </Button>
                   <ol className="FormField__criteria-list">
                     {state.acceptanceCriteria.map((item, index) => (
                       <li key={index}>
@@ -80,6 +74,16 @@ const UserStoryForm = connect(
                       </li>
                     ))}
                   </ol>
+                  <Button
+                    type="button"
+                    className="Button Button--inverted Button--icon Button--icon-add"
+                    onClick={(e) => {
+                      addCriteriaList();
+                      setSuccessClass({ e });
+                    }}
+                  >
+                    <span>Add Criterion</span>
+                  </Button>
                 </>
               )}
             </FormField>

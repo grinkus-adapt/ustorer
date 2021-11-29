@@ -15,7 +15,7 @@
 
     &__sidebar-toggle {
       gap: 0 !important; /* important because it's overwriten in button.css */
-      position: absolute;
+      position: absolute !important;
       right: 20px;
       top: 1rem;
     }
