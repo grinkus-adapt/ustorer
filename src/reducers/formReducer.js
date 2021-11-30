@@ -30,6 +30,8 @@ const formReducer = (state, action) => {
     const acceptanceCriteria = [...state.acceptanceCriteria];
     if (index !== ``) {
       acceptanceCriteria.splice(index + 1, 0, ``);
+      const newInput = document.querySelector(`#criterion-input-${index + 1}`);
+      newInput.focus();
       return {
         ...state,
         acceptanceCriteria,
