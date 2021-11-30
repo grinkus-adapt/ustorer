@@ -10,7 +10,7 @@ import { formContext } from '../../contexts';
 
 const UserStoryForm = connect(
   formContext,
-  mapActionsToProps([`addCriteriaList`, `remCriteriaList`, `setSuccessClass`])
+  mapActionsToProps([`addCriteriaList`, `remCriteriaList`])
 )(
   ({
     FormData,
@@ -19,7 +19,6 @@ const UserStoryForm = connect(
     remCriteriaList,
     state,
     addCriteriaList,
-    setSuccessClass,
   }) => {
     const handleKeycode = (e, index) => {
       // 13 - Enter
