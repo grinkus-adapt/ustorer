@@ -68,7 +68,7 @@ const UserStoryForm = connect(
               {item.type === `acceptanceCriteria` && (
                 <>
                   <ol className="FormField__criteria-list">
-                    {state.acceptanceCriteria.map((item, index) => (
+                    {state.acceptanceCriteria.map((listItem, index) => (
                       <li key={index}>
                         <div className="criterion-fake-input">
                           <TextInput
@@ -76,7 +76,8 @@ const UserStoryForm = connect(
                             className="form-input"
                             onInput={(e) => {changeCriterion(e, index);}}
                             onKeyDown={(e) => handleKeycode(e, index)}
-                            value={item}
+                            value={listItem}
+                            placeholder={item.placeholder}
                           />
                           <Button
                             type="button"
