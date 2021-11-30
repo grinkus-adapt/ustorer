@@ -20,7 +20,14 @@ const UserStoryForm = connect(
     state,
     addCriteriaList,
     setSuccessClass,
-  }) => (
+  }) => {
+    const handleEnterKeycode = (e, index) => {
+      if(e.keyCode === 13) {
+        addCriteriaList({ index });
+      }
+    }
+
+    return(
     <form className="UserStoryForm">
       {FormData.map(
         (item) =>
@@ -62,7 +69,8 @@ const UserStoryForm = connect(
                           <TextInput
                             name={`criterion-input-${index}`}
                             className="form-input"
-                            onInput={(e) => changeCriterion(e, index)}
+                            onInput={(e) => {changeCriterion(e, index);}}
+                            onKeyDown={(e) => handleEnterKeycode(e, index)}
                             value={item}
                           />
                           <Button
@@ -80,7 +88,7 @@ const UserStoryForm = connect(
                     type="button"
                     className="Button Button--inverted Button--anim FormField__criteria-list__add-btn"
                     onClick={(e) => {
-                      addCriteriaList();
+                      addCriteriaList({ index: ``});
                       setSuccessClass({ e });
                     }}
                   >
@@ -94,7 +102,7 @@ const UserStoryForm = connect(
           )
       )}
     </form>
-  )
+  )}
 );
 
 export default UserStoryForm;

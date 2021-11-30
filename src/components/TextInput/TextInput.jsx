@@ -1,6 +1,6 @@
 import './TextInput.css';
 
-const TextInput = ({ name, placeholder, required, onInput, value, className }) => (
+const TextInput = ({ name, placeholder, required, onInput, value, className, onKeyDown }) => (
   <>
     <input
       type="text"
@@ -10,6 +10,7 @@ const TextInput = ({ name, placeholder, required, onInput, value, className }) =
       placeholder={placeholder}
       {...(required ? required : null)}
       onInput={onInput}
+      onKeyDown={onKeyDown}
       value={value}
     />
   </>

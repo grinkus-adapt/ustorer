@@ -26,7 +26,15 @@ const formReducer = (state, action) => {
   }
 
   if (type === `addCriteriaList`) {
+    const { index } = payload;
     const acceptanceCriteria = [...state.acceptanceCriteria];
+    if (index !== ``) {
+      acceptanceCriteria.splice(index + 1, 0, ``);
+      return {
+        ...state,
+        acceptanceCriteria,
+      }
+    }
     acceptanceCriteria.push(``);
     return {
       ...state,
