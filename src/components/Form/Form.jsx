@@ -25,8 +25,6 @@ const SummaryFormField = connect(formContext)(({ handleChange, state }) => (
   </FormField>
 ));
 
-console.log('temporary');
-
 const TaskTypeField = connect(
   formContext,
   mapActionsToProps([`changeTaskType`])
