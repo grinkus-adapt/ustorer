@@ -1,10 +1,9 @@
+import './UserStoryForm.css';
 import FormField from '../FormField';
 import TextInput from '../TextInput';
 import TextArea from '../TextArea';
 import Button from '../Button';
-import './UserStoryForm.css';
 import { connect, mapActionsToProps } from '../../utilities/connect';
-import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
 import { ReactComponent as IconPlus } from '@fortawesome/fontawesome-free/svgs/solid/plus.svg';
 import { formContext } from '../../contexts';
 
