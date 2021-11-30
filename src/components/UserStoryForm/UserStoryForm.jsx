@@ -21,9 +21,16 @@ const UserStoryForm = connect(
     addCriteriaList,
     setSuccessClass,
   }) => {
-    const handleEnterKeycode = (e, index) => {
+    const handleKeycode = (e, index) => {
+      // 13 - Enter
       if(e.keyCode === 13) {
         addCriteriaList({ index });
+      }
+      // 46 - Delete
+      if(e.keyCode === 46) {
+        remCriteriaList({ index });
+        // select the previous list input
+        document.querySelector(`#criterion-input-${index - 1}`).focus();
       }
     }
 
@@ -70,7 +77,7 @@ const UserStoryForm = connect(
                             name={`criterion-input-${index}`}
                             className="form-input"
                             onInput={(e) => {changeCriterion(e, index);}}
-                            onKeyDown={(e) => handleEnterKeycode(e, index)}
+                            onKeyDown={(e) => handleKeycode(e, index)}
                             value={item}
                           />
                           <Button
