@@ -1,7 +1,5 @@
 import './Header.css';
 import Logo from '../Logo';
-import Button from '../Button';
-import { useState } from 'preact/hooks';
 
 const Header = () => (
   <div className="Header">

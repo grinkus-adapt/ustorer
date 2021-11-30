@@ -1,3 +1,5 @@
+/* globals markdown */
+
 import './Output.css';
 import Button from '../Button';
 import useCopyAsMarkdown from '@cnakazawa/copy-as-markdown';
