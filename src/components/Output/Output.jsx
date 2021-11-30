@@ -8,7 +8,7 @@ import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/
 import { ReactComponent as IconCopy } from '@fortawesome/fontawesome-free/svgs/solid/copy.svg';
 import { formContext } from '../../contexts';
 import markdownFunctionSource from '../../../node_modules/drawdown/drawdown.js?raw';
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef } from 'preact/hooks';
 
 const Output = connect(
   formContext,
@@ -30,11 +30,11 @@ const Output = connect(
   const localMarkdown = useRef(() => {});
 
   useEffect(() => {
-    const script = document.createElement('script');
+    const script = document.createElement(`script`);
     script.innerHTML = markdownFunctionSource;
     document.head.appendChild(script);
     localMarkdown.current = markdown;
-    return () => document.head.removeChild(script)
+    return () => document.head.removeChild(script);
   }, []);
 
   return (
@@ -57,7 +57,12 @@ const Output = connect(
                       <span className="Output__description--label">
                         <b>{item.label}</b>
                       </span>
-                      <div dangerouslySetInnerHTML={{__html: localMarkdown.current(state[item.id])}}className="Output__description--content" />
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: localMarkdown.current(state[item.id]),
+                        }}
+                        className="Output__description--content"
+                      />
                     </div>
                   );
                 if (formType === `bugReport`) {
