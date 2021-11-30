@@ -28,7 +28,7 @@ const UserStoryForm = connect(
       if (e.keyCode === 46 || (e.keyCode === 8 && e.target.value === ``)) {
         remCriteriaList({ index });
         const previousInput = document.querySelector(
-          `#criterion-input-${e.keyCode === 8 ? index - 1 : index + 1}`
+          `#criterion-input-${e.keyCode === 8 ? index - 1 : index}`
         );
         previousInput && previousInput.focus();
         if (e.keyCode === 8) {
@@ -37,6 +37,8 @@ const UserStoryForm = connect(
         }
       }
     };
+
+    let indexKey = 0;
 
     return (
       <form className="UserStoryForm">
@@ -74,8 +76,10 @@ const UserStoryForm = connect(
                 {item.type === `acceptanceCriteria` && (
                   <>
                     <ol className="FormField__criteria-list">
-                      {state.acceptanceCriteria.map((listItem, index) => (
-                        <li key={`${listItem.length ? listItem : index}`}>
+                      {state.acceptanceCriteria.map((listItem, index) => {
+                        indexKey += 1;
+                        return(
+                        <li key={indexKey}>
                           <div className="criterion-fake-input">
                             <TextInput
                               name={`criterion-input-${index}`}
@@ -96,7 +100,7 @@ const UserStoryForm = connect(
                             </Button>
                           </div>
                         </li>
-                      ))}
+                      )})}
                     </ol>
                     <Button
                       type="button"
