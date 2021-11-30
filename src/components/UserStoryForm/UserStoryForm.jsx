@@ -86,14 +86,12 @@ const UserStoryForm = connect(
                   </ol>
                   <Button
                     type="button"
-                    className="Button Button--inverted Button--anim FormField__criteria-list__add-btn"
-                    onClick={(e) => {
+                    className="Button FormField__criteria-list__add-btn"
+                    onClick={() => {
                       addCriteriaList({ index: ``});
-                      setSuccessClass({ e });
                     }}
                   >
                     <IconPlus className="icon" />
-                    <IconCheck className="icon-check" />
                     <span>Add Criterion</span>
                   </Button>
                 </>

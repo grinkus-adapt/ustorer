@@ -22,7 +22,7 @@
   }
 
   &__criteria-list {
-    width: 100%;
+    margin-bottom: 0;
 
     &__rem-btn {
       font-size: 1.5rem;
@@ -30,13 +30,19 @@
     }
 
     &__add-btn {
+      align-items: center;
+      display: flex;
+      font-size: 1rem;
+      gap: 10px;
+      margin-left: 1.2rem;
+
+      > span {
+        padding: 0;
+      }
+
       > svg {
         fill: var(--primary-color);
-        height: 25px;
-        left: 0;
-        margin-top: 10px;
-        position: absolute;
-        transform: translateX(-40%);
+        height: 20px;
       }
     }
   }
