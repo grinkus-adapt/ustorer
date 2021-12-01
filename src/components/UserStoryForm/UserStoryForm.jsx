@@ -38,8 +38,6 @@ const UserStoryForm = connect(
       }
     };
 
-    let indexKey = 0;
-
     return (
       <form className="UserStoryForm">
         {FormData.map(
@@ -76,10 +74,8 @@ const UserStoryForm = connect(
                 {item.type === `acceptanceCriteria` && (
                   <>
                     <ol className="FormField__criteria-list">
-                      {state.acceptanceCriteria.map((listItem, index) => {
-                        indexKey += 1;
-                        return(
-                        <li key={indexKey}>
+                      {state.acceptanceCriteria.map((listItem, index) => (
+                        <li key={`${listItem.length ? listItem : index}`}>
                           <div className="criterion-fake-input">
                             <TextInput
                               name={`criterion-input-${index}`}
@@ -93,14 +89,14 @@ const UserStoryForm = connect(
                             />
                             <Button
                               type="button"
-                              className="FormField__criteria-list__rem-btn"
+                              className="Button FormField__criteria-list__rem-btn"
                               onClick={() => remCriteriaList({ index })}
                             >
                               ×
                             </Button>
                           </div>
                         </li>
-                      )})}
+                      ))}
                     </ol>
                     <Button
                       type="button"
