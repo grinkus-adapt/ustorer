@@ -60,9 +60,12 @@ const Output = connect(
                         <b>{item.label}</b>
                       </span>
                       <div
-                        dangerouslySetInnerHTML={{
+                        dangerouslySetInnerHTML={
+                          state[item.id] === undefined ? {__html: `...`} :
+                          {
                           __html: localMarkdown.current(state[item.id]),
-                        }}
+                        }
+                      }
                         className="Output__description--content"
                       />
                     </div>
@@ -116,7 +119,7 @@ const Output = connect(
             <div className="Output__actions">
               <Button
                 type="button"
-                className="Button Button--filled Button--anim Output__actions__copy-btn"
+                className="Button--filled Button--anim Output__actions__copy-btn"
                 onClick={(e) => {
                   copyOutput(`.Output__content--body`);
                   setSuccessClass({ e });
