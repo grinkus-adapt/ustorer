@@ -19,7 +19,7 @@ const SummaryOutputField = connect(
     <div className="SummaryOutputField__content">{state[`summary`]}</div>
     <div className="SummaryOutputField__content__actions">
       <Button
-        className="Button Button--filled Button--anim SummaryOutputField__content__actions__copy-btn"
+        className="Button--filled Button--anim SummaryOutputField__content__actions__copy-btn"
         onClick={(e) => {
           copyOutput(`.SummaryOutputField__content`);
           setSuccessClass({ e });

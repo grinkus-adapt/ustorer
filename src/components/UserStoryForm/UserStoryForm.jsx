@@ -93,7 +93,7 @@ const UserStoryForm = connect(
                             />
                             <Button
                               type="button"
-                              className="Button FormField__criteria-list__rem-btn"
+                              className="FormField__criteria-list__rem-btn"
                               onClick={() => remCriteriaList({ index })}
                             >
                               ×
@@ -104,7 +104,7 @@ const UserStoryForm = connect(
                     </ol>
                     <Button
                       type="button"
-                      className="Button FormField__criteria-list__add-btn"
+                      className="FormField__criteria-list__add-btn"
                       onClick={() => {
                         addCriteriaList({ index: `` });
                       }}
