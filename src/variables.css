@@ -1,8 +1,10 @@
 :root {
-  --primary-color: teal;
+  --primary-color: #388697;
   --dark-color: #333;
   --light-color: #fbfbfb;
   --grey-color: #f4f4f4;
+  --story-color: #eb7100;
+  --bug-color: #d40109;
   --fw-bold: 600;
   --fw-regular: 400;
 }
