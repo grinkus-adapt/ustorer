@@ -32,8 +32,8 @@
       margin-bottom: -0.5rem;
       text-transform: uppercase;
 
-      &--story { color: #eb7100; }
-      &--bug { color: #d40109; }
+      &--story { color: var(--story-color); }
+      &--bug { color: var(--bug-color); }
     }
 
     &--empty {

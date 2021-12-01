@@ -113,7 +113,7 @@ const Form = connect(
           <BugReportForm FormData={FormData} handleChange={handleChange} />
         )}
         <Button
-          className="Button Button--filled Button--anim Form__save-btn"
+          className="Button--filled Button--anim Form__save-btn"
           onClick={(e) => {
             saveFormDraft();
             setSuccessClass({ e });

@@ -1,3 +1,5 @@
+/* globals markdown */
+
 import './Output.css';
 import Button from '../Button';
 import useCopyAsMarkdown from '@cnakazawa/copy-as-markdown';
@@ -7,6 +9,8 @@ import { connect, mapActionsToProps } from '../../utilities/connect';
 import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
 import { ReactComponent as IconCopy } from '@fortawesome/fontawesome-free/svgs/solid/copy.svg';
 import { formContext } from '../../contexts';
+import markdownFunctionSource from '../../../node_modules/drawdown/drawdown.js?raw';
+import { useEffect, useRef } from 'preact/hooks';
 
 const Output = connect(
   formContext,
@@ -24,6 +28,16 @@ const Output = connect(
       }).turndown(nodeHTML)
     );
   };
+
+  const localMarkdown = useRef(() => {});
+
+  useEffect(() => {
+    const script = document.createElement(`script`);
+    script.innerHTML = markdownFunctionSource;
+    document.head.appendChild(script);
+    localMarkdown.current = markdown;
+    return () => document.head.removeChild(script);
+  }, []);
 
   return (
     <div className="Output">
@@ -45,9 +59,15 @@ const Output = connect(
                       <span className="Output__description--label">
                         <b>{item.label}</b>
                       </span>
-                      <div className="Output__description--content">
-                        {state[item.id]}
-                      </div>
+                      <div
+                        dangerouslySetInnerHTML={
+                          state[item.id] === undefined ? {__html: `...`} :
+                          {
+                          __html: localMarkdown.current(state[item.id]),
+                        }
+                      }
+                        className="Output__description--content"
+                      />
                     </div>
                   );
                 if (formType === `bugReport`) {
@@ -99,7 +119,7 @@ const Output = connect(
             <div className="Output__actions">
               <Button
                 type="button"
-                className="Button Button--filled Button--anim Output__actions__copy-btn"
+                className="Button--filled Button--anim Output__actions__copy-btn"
                 onClick={(e) => {
                   copyOutput(`.Output__content--body`);
                   setSuccessClass({ e });

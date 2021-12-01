@@ -1,6 +1,15 @@
 import './TextArea.css';
 
-const TextArea = ({ name, id, rows, cols, onInput, className, value }) => (
+const TextArea = ({
+  name,
+  id,
+  rows,
+  cols,
+  onInput,
+  className,
+  value,
+  placeholder,
+}) => (
   <>
     <textarea
       type="text"
@@ -11,6 +20,7 @@ const TextArea = ({ name, id, rows, cols, onInput, className, value }) => (
       cols={cols}
       onInput={onInput}
       value={value}
+      placeholder={placeholder}
     />
   </>
 );
