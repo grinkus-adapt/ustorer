@@ -1,0 +1,61 @@
+.DeleteConfirm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__title {
+    &__task-type {
+      text-transform: uppercase;
+    }
+  }
+
+  &__summary {
+    color: var(--primary-color);
+    font-weight: var(--fw-bold);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    &__cancel-btn,
+    &__delete-btn {
+      font-size: 1rem;
+      font-weight: var(--fw-regular);
+      padding: 0.2rem 2rem;
+      width: 50%;
+
+      > svg {
+        height: 22px;
+        left: 0;
+        margin-top: 10px;
+        position: absolute;
+        transform: translateX(-40%);
+      }
+    }
+
+    &__cancel-btn {
+      color: #a9a9a9;
+
+      > svg {
+        fill: #a9a9a9;
+      }
+    }
+
+    &__delete-btn {
+      background-color: var(--dark-red-color);
+
+      > svg {
+        fill: var(--light-color);
+      }
+    }
+  }
+}

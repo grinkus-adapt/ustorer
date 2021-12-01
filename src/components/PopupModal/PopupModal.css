@@ -1,0 +1,20 @@
+.PopupModal {
+  align-items: center;
+  background: rgb(0 0 0 / 30%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  &__container {
+    align-items: center;
+    background: var(--light-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    max-height: 250px;
+    max-width: 640px;
+  }
+}
