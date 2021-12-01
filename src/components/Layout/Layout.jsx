@@ -5,6 +5,8 @@ import { useState } from 'preact/hooks';
 import { ReactComponent as IconOpen } from '@fortawesome/fontawesome-free/svgs/solid/angle-left.svg';
 import { ReactComponent as IconClose } from '@fortawesome/fontawesome-free/svgs/solid/angle-right.svg';
 import Button from '../Button';
+import PopupModal from '../PopupModal/PopupModal';
+import DeleteConfirm from '../DeleteConfirm';
 
 const Layout = ({
   children,
@@ -14,6 +16,7 @@ const Layout = ({
   setIsOutputEmpty,
 }) => {
   const [sidebarState, setSidebarState] = useState(`visible`);
+  const [popupModalTrigger, setPopupModalTrigger] = useState(null);
 
   const toggleSidebar = () => {
     const draftList = document.querySelector(`.DraftList`);
@@ -26,8 +29,28 @@ const Layout = ({
     }
   };
 
+  const deleteDraft = (index) => {
+    const draftFromLocalStorage = JSON.parse(
+      localStorage.getItem(`formDraftState`)
+    );
+    const newDraft = [
+      ...draftFromLocalStorage.slice(0, index),
+      ...draftFromLocalStorage.slice(index + 1),
+    ];
+    localStorage.setItem(`formDraftState`, JSON.stringify(newDraft));
+    setDraftState(newDraft);
+  };
+
   return (
     <div className="Layout">
+      <PopupModal trigger={popupModalTrigger}>
+        <DeleteConfirm
+          setPopupModalTrigger={setPopupModalTrigger}
+          deleteDraft={deleteDraft}
+          draftIndex={popupModalTrigger}
+          draftList={draftState}
+        />
+      </PopupModal>
       <Header />
       <div className="Layout__wrapper">
         <div className="Layout__content">{children}</div>
@@ -36,6 +59,7 @@ const Layout = ({
           setDraftState={setDraftState}
           setFormType={setFormType}
           setIsOutputEmpty={setIsOutputEmpty}
+          setPopupModalTrigger={setPopupModalTrigger}
         />
         {sidebarState === `hidden` && (
           <Button
