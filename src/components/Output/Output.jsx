@@ -61,11 +61,12 @@ const Output = connect(
                       </span>
                       <div
                         dangerouslySetInnerHTML={
-                          state[item.id] === undefined ? {__html: `...`} :
-                          {
-                          __html: localMarkdown.current(state[item.id]),
+                          state[item.id] === undefined
+                            ? { __html: `...` }
+                            : {
+                                __html: localMarkdown.current(state[item.id]),
+                              }
                         }
-                      }
                         className="Output__description--content"
                       />
                     </div>

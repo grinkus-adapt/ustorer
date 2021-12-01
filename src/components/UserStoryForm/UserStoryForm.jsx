@@ -78,29 +78,30 @@ const UserStoryForm = connect(
                     <ol className="FormField__criteria-list">
                       {state.acceptanceCriteria.map((listItem, index) => {
                         indexKey += 1;
-                        return(
-                        <li key={indexKey}>
-                          <div className="criterion-fake-input">
-                            <TextInput
-                              name={`criterion-input-${index}`}
-                              className="form-input"
-                              onInput={(e) => {
-                                changeCriterion(e, index);
-                              }}
-                              onKeyDown={(e) => handleKeycode(e, index)}
-                              value={listItem}
-                              placeholder={item.placeholder}
-                            />
-                            <Button
-                              type="button"
-                              className="FormField__criteria-list__rem-btn"
-                              onClick={() => remCriteriaList({ index })}
-                            >
-                              ×
-                            </Button>
-                          </div>
-                        </li>
-                      )})}
+                        return (
+                          <li key={indexKey}>
+                            <div className="criterion-fake-input">
+                              <TextInput
+                                name={`criterion-input-${index}`}
+                                className="form-input"
+                                onInput={(e) => {
+                                  changeCriterion(e, index);
+                                }}
+                                onKeyDown={(e) => handleKeycode(e, index)}
+                                value={listItem}
+                                placeholder={item.placeholder}
+                              />
+                              <Button
+                                type="button"
+                                className="FormField__criteria-list__rem-btn"
+                                onClick={() => remCriteriaList({ index })}
+                              >
+                                ×
+                              </Button>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ol>
                     <Button
                       type="button"

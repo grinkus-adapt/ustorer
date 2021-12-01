@@ -34,7 +34,7 @@ const formReducer = (state, action) => {
       return {
         ...state,
         acceptanceCriteria,
-      }
+      };
     }
     acceptanceCriteria.push(``);
     return {
