@@ -13,6 +13,7 @@
     align-items: center;
     background: var(--light-color);
     border-radius: 5px;
+    box-shadow: 0 0 30px rgb(0 0 0 / 60%);
     display: flex;
     justify-content: center;
     max-height: 250px;
