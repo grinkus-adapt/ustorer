@@ -28,7 +28,7 @@ const UserStoryForm = connect(
       if (e.keyCode === 46 || (e.keyCode === 8 && e.target.value === ``)) {
         remCriteriaList({ index });
         const previousInput = document.querySelector(
-          `#criterion-input-${e.keyCode === 8 ? index - 1 : index}`
+          `#criterion-input-${e.keyCode === 8 ? index - 1 : index + 1}`
         );
         previousInput && previousInput.focus();
         if (e.keyCode === 8) {
