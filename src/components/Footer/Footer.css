@@ -12,6 +12,7 @@
     justify-content: center;
     max-width: 1440px;
     opacity: 0.8;
+    text-align: center;
 
     &__link {
       color: var(--color-primary);
