@@ -1,7 +1,7 @@
 .Header {
   align-items: center;
-  background-color: var(--dark-color);
-  color: var(--grey-color);
+  background-color: var(--color-dark);
+  color: var(--color-grey);
   display: flex;
   height: 70px;
   justify-content: center;
