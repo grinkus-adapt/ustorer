@@ -42,14 +42,14 @@
       }
 
       > svg {
-        fill: var(--primary-color);
+        fill: var(--color-primary);
         height: 20px;
       }
     }
   }
 
   &__criteria-list li::marker {
-    color: var(--primary-color);
+    color: var(--color-primary);
     font-weight: var(--fw-bold);
   }
 }

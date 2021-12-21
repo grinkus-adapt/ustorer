@@ -27,7 +27,7 @@
     top: 1rem;
 
     > svg {
-      fill: var(--primary-color);
+      fill: var(--color-primary);
       margin-right: 0.2rem;
     }
   }

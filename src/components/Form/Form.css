@@ -1,5 +1,5 @@
 .Form {
-  background-color: var(--grey-color);
+  background-color: var(--color-grey);
   display: inline-flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -8,12 +8,12 @@
   width: 100%;
 
   &__title {
-    color: var(--primary-color);
+    color: var(--color-primary);
   }
 
   &__save-btn {
     > svg {
-      fill: var(--light-color);
+      fill: var(--color-light);
       height: 25px;
       left: 0;
       margin-top: 10px;

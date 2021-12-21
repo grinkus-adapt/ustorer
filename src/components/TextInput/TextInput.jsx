@@ -9,6 +9,7 @@ const TextInput = ({
   value,
   className,
   onKeyDown,
+  onFocus,
 }) => {
   useEffect(() => {
     inputRef.current.focus();
@@ -25,6 +26,7 @@ const TextInput = ({
         placeholder={placeholder}
         {...(required ? required : null)}
         onInput={onInput}
+        onFocus={onFocus}
         onKeyDown={onKeyDown}
         value={value}
       />

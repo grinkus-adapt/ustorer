@@ -1,3 +1,4 @@
+import { useState } from 'preact/hooks';
 import './UserStoryForm.css';
 import FormField from '../FormField';
 import TextInput from '../TextInput';
@@ -19,6 +20,8 @@ const UserStoryForm = connect(
     state,
     addCriteriaList,
   }) => {
+    const [cursorPosition, setCursorPosition] = useState(0);
+
     const handleKeycode = (e, index) => {
       // 13 - Enter
       if (e.keyCode === 13) {
@@ -81,7 +84,12 @@ const UserStoryForm = connect(
                               name={`criterion-input-${index}`}
                               className="form-input"
                               onInput={(e) => {
+                                setCursorPosition(e.target.selectionStart);
                                 changeCriterion(e, index);
+                              }}
+                              onFocus={(e) => {
+                                e.target.selectionStart = cursorPosition;
+                                e.target.selectionEnd = cursorPosition;
                               }}
                               onKeyDown={(e) => handleKeycode(e, index)}
                               value={listItem}

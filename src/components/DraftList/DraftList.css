@@ -1,6 +1,6 @@
 .DraftList {
-  background-color: var(--grey-color);
-  box-shadow: 5px 0 15px var(--dark-color);
+  background-color: var(--color-grey);
+  box-shadow: 5px 0 15px var(--color-dark);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -13,14 +13,14 @@
   width: 300px;
 
   &__title {
-    color: var(--primary-color);
+    color: var(--color-primary);
   }
 
   &__container {
-    background-color: var(--light-color);
+    background-color: var(--color-light);
     border: 1px solid rgb(221 237 239);
     border-radius: 5px;
-    color: var(--primary-color);
+    color: var(--color-primary);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -32,8 +32,8 @@
       margin-bottom: -0.5rem;
       text-transform: uppercase;
 
-      &--story { color: var(--story-color); }
-      &--bug { color: var(--bug-color); }
+      &--story { color: var(--color-story); }
+      &--bug { color: var(--color-bug); }
     }
 
     &--empty {
@@ -50,7 +50,7 @@
     }
 
     &__del-btn {
-      fill: var(--dark-red-color);
+      fill: var(--color-dark-red);
     }
 
     &__summary {
@@ -61,7 +61,7 @@
     }
 
     &__description {
-      color: var(--dark-color);
+      color: var(--color-dark);
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -76,7 +76,7 @@
         width: 100%;
 
         > svg {
-          fill: var(--primary-color);
+          fill: var(--color-primary);
           height: 25px;
           left: 0;
           margin-top: 10px;
