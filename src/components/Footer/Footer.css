@@ -1,0 +1,21 @@
+.Footer {
+  background-color: var(--color-dark);
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 100%;
+
+  &__content {
+    align-items: center;
+    color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    opacity: 0.8;
+
+    &__link {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { ReactComponent as IconClose } from '@fortawesome/fontawesome-free/svgs/
 import Button from '../Button';
 import PopupModal from '../PopupModal/PopupModal';
 import DeleteConfirm from '../DeleteConfirm';
+import Footer from '../Footer/Footer';
 
 const Layout = ({
   children,
@@ -80,6 +81,7 @@ const Layout = ({
           </Button>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
