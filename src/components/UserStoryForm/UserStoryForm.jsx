@@ -22,6 +22,8 @@ const UserStoryForm = connect(
   }) => {
     const [cursorPosition, setCursorPosition] = useState(0);
 
+    const screenWidth = window.screen.width;
+
     const handleKeycode = (e, index) => {
       // 13 - Enter
       if (e.keyCode === 13) {
@@ -61,7 +63,16 @@ const UserStoryForm = connect(
                     name={item.id}
                     placeholder={item.placeholder}
                     required={item.required}
-                    onInput={(e) => handleChange(e)}
+                    onInput={(e) => {
+                      if (screenWidth > 640) {
+                        handleChange(e);
+                      }
+                    }}
+                    onBlur={(e) => {
+                      if (screenWidth < 640) {
+                        handleChange(e);
+                      }
+                    }}
                     value={state[item.id]}
                   />
                 )}
@@ -70,7 +81,16 @@ const UserStoryForm = connect(
                     name={item.id}
                     placeholder={item.placeholder}
                     required={item.required}
-                    onInput={(e) => handleChange(e)}
+                    onInput={(e) => {
+                      if (screenWidth > 640) {
+                        handleChange(e);
+                      }
+                    }}
+                    onBlur={(e) => {
+                      if (screenWidth < 640) {
+                        handleChange(e);
+                      }
+                    }}
                     value={state[item.id]}
                   />
                 )}
@@ -84,8 +104,16 @@ const UserStoryForm = connect(
                               name={`criterion-input-${index}`}
                               className="form-input"
                               onInput={(e) => {
-                                setCursorPosition(e.target.selectionStart);
-                                changeCriterion(e, index);
+                                if (screenWidth > 640) {
+                                  setCursorPosition(e.target.selectionStart);
+                                  changeCriterion(e, index);
+                                }
+                              }}
+                              onBlur={(e) => {
+                                if (screenWidth < 640) {
+                                  setCursorPosition(e.target.selectionStart);
+                                  changeCriterion(e, index);
+                                }
                               }}
                               onFocus={(e) => {
                                 e.target.selectionStart = cursorPosition;

@@ -9,6 +9,7 @@ const TextArea = ({
   className,
   value,
   placeholder,
+  onBlur,
 }) => (
   <>
     <textarea
@@ -21,6 +22,7 @@ const TextArea = ({
       onInput={onInput}
       value={value}
       placeholder={placeholder}
+      onBlur={onBlur}
     />
   </>
 );

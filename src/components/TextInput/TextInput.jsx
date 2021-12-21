@@ -10,6 +10,7 @@ const TextInput = ({
   className,
   onKeyDown,
   onFocus,
+  onBlur,
 }) => {
   useEffect(() => {
     inputRef.current.focus();
@@ -27,6 +28,7 @@ const TextInput = ({
         {...(required ? required : null)}
         onInput={onInput}
         onFocus={onFocus}
+        onBlur={onBlur}
         onKeyDown={onKeyDown}
         value={value}
       />

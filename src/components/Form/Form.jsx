@@ -10,20 +10,33 @@ import { formContext } from '../../contexts';
 import { ReactComponent as IconSave } from '@fortawesome/fontawesome-free/svgs/solid/save.svg';
 import { ReactComponent as IconCheck } from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
 
-const SummaryFormField = connect(formContext)(({ handleChange, state }) => (
-  <FormField
-    label="Summary"
-    labelFor="form-summary"
-    className="FormField__summary"
-  >
-    <TextArea
-      className="TextArea__summary"
-      id="summary"
-      onInput={handleChange}
-      value={state.summary}
-    />
-  </FormField>
-));
+const SummaryFormField = connect(formContext)(({ handleChange, state }) => {
+  const screenWidth = window.screen.width;
+
+  return (
+    <FormField
+      label="Summary"
+      labelFor="form-summary"
+      className="FormField__summary"
+    >
+      <TextArea
+        className="TextArea__summary"
+        id="summary"
+        onInput={(e) => {
+          if (screenWidth > 640) {
+            handleChange(e);
+          }
+        }}
+        onBlur={(e) => {
+          if (screenWidth < 640) {
+            handleChange(e);
+          }
+        }}
+        value={state.summary}
+      />
+    </FormField>
+  );
+});
 
 const TaskTypeField = connect(
   formContext,
